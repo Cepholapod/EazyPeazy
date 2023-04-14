@@ -33,7 +33,7 @@ public class main extends Application {
 	public static List<Recipe> sides;
 	public static List<Recipe> desserts;
 	public static String tag;
-	final public static Image newUser = new Image("Image/Buttons/NewUser.jpg");
+	//final public static Image newUser = new Image("UserImage/NewUser.PNG");
 	final public static TilePane tilePane = new TilePane();
 	public Stage stage2;
 
@@ -45,22 +45,21 @@ public class main extends Application {
 	// creates a User object.
 	// Both of these functions use the User.java class
 	public void start(Stage primaryStage) {
-
+		
 		NutritionGUI nutrition = new NutritionGUI();
 		BorderPane borderPane = new BorderPane();
 		Scene scene = new Scene(borderPane, 800, 700);
 		Scene scene2 = new Scene(nutrition, 800, 700);
 		createStage(stage2, "nutrition", scene2);
-		Image newUser = new Image("Image/Buttons/NewUser.jpg");
-		// Image userImage = new Image("Image/User.PNG");
-		Button User1 = new Button("User1", new ImageView(newUser));
-		Button User2 = new Button("User2", new ImageView(newUser));
-		Button User3 = new Button("User3", new ImageView(newUser));
-		Button User4 = new Button("User4", new ImageView(newUser));
-		Button User5 = new Button("User5", new ImageView(newUser));
+		//Image newUser = new Image("UserImage/NewUser.PNG");
+		Button User1 = new Button("User1");
+		Button User2 = new Button("User2");
+		Button User3 = new Button("User3");
+		Button User4 = new Button("User4");
+		Button User5 = new Button("User5");
 
-		// Image userImage = new Image("Image/User.PNG");
-		Button btNewUser = new Button("New User...", new ImageView(newUser));
+		
+		Button btNewUser = new Button("New User...");
 		btNewUser.setFont(Font.font("Georgia", FontWeight.BOLD, 18));
 
 		btNewUser.setPrefSize(12, 12);
@@ -87,7 +86,7 @@ public class main extends Application {
 		// and create buttons/handle action events
 
 		for (int i = 0; i < users.size(); i++) {
-			final Button button = new Button("" + users.get(i).getUsername(), new ImageView(newUser));
+			final Button button = new Button("" + users.get(i).getUsername());
 			button.setContentDisplay(ContentDisplay.TOP);
 			button.setFont(Font.font("Georgia", FontWeight.BOLD, 18));
 			// button.setPrefSize(80, 30);
@@ -183,7 +182,7 @@ public class main extends Application {
 				} else {
 					User.addUser(username);
 
-					final Button newUserButton = new Button(username, new ImageView(newUser));
+					final Button newUserButton = new Button(username);
 					newUserButton.setContentDisplay(ContentDisplay.TOP);
 					newUserButton.setFont(Font.font("Georgia", FontWeight.BOLD, 18));
 					tilePane.getChildren().add(newUserButton);

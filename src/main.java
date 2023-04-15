@@ -236,7 +236,28 @@ public class main extends Application {
 		// rs.shutdown();
 	}
 
-	
+	public static boolean checkUniqueName(String title) {
+		
+		for(int i = 0; i < entrees.size(); i++) {
+			if(title.equalsIgnoreCase(entrees.get(i).getTitle())) {
+				return false;
+			}
+		}
+		
+		for(int i = 0; i < sides.size(); i++) {
+			if(title.equalsIgnoreCase(sides.get(i).getTitle())) {
+				return false;
+			}
+		}
+		
+		for(int i = 0; i < desserts.size(); i++) {
+			if(title.equalsIgnoreCase(desserts.get(i).getTitle())) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
 
 	public void loadUsers() {
 

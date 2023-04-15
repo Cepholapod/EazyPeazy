@@ -220,18 +220,18 @@ public class main extends Application {
 			desserts = DietDecorator.dessertSelector(new File("Dessert.txt"), tag);
 		}
 
-		Scanner sc = new Scanner(System.in);
-		File f = new File("Recipe.txt");
-		List<Recipe> recipe = RecipeParser.recipeReader(f);
+// 		Scanner sc = new Scanner(System.in);
+// 		File f = new File("Recipe.txt");
+// 		List<Recipe> recipe = RecipeParser.recipeReader(f);
 
-		System.out.println("Do you want to create a recipe? (Yes/No)");
-		if (sc.next().equalsIgnoreCase("Yes"))
-			createRecipe();
+// 		System.out.println("Do you want to create a recipe? (Yes/No)");
+// 		if (sc.next().equalsIgnoreCase("Yes"))
+// 			Recipe.createRecipe();
 
-		// RecipeSelector rs = new RecipeSelector();
-		// RecipeSelector vs = new VeganDecorator();
-		// System.out.println(rs.desserts.get(0).print());
-		System.out.println(entrees.get(0).print());
+// 		// RecipeSelector rs = new RecipeSelector();
+// 		// RecipeSelector vs = new VeganDecorator();
+// 		// System.out.println(rs.desserts.get(0).print());
+// 		System.out.println(entrees.get(0).print());
 
 		// rs.shutdown();
 	}

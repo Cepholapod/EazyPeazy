@@ -22,8 +22,10 @@ import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Arc;
+import javafx.scene.shape.ArcType;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -37,32 +39,21 @@ public class main extends Application {
 	final public static TilePane tilePane = new TilePane();
 	public Stage stage2;
 
-	// Dev @GLOVER Start function. Still looking at how to do this with only one
-	// start.
-	// Zach - I made modifications so that we are adding Users from users.txt (So
-	// that any number of users are defaulted/saved)
-	// Also, I made an add user button, which saves the User input to users.txt and
-	// creates a User object.
-	// Both of these functions use the User.java class
+	// Dev @GLOVER Start function contains 'Who is eating?'
 	public void start(Stage primaryStage) {
 		
-		NutritionGUI nutrition = new NutritionGUI();
+		
 		BorderPane borderPane = new BorderPane();
 		Scene scene = new Scene(borderPane, 800, 700);
-		Scene scene2 = new Scene(nutrition, 800, 700);
-		createStage(stage2, "nutrition", scene2);
+	
 		//Image newUser = new Image("UserImage/NewUser.PNG");
-		Button User1 = new Button("User1");
-		Button User2 = new Button("User2");
-		Button User3 = new Button("User3");
-		Button User4 = new Button("User4");
-		Button User5 = new Button("User5");
+	
 
 		
 		Button btNewUser = new Button("New User...");
 		btNewUser.setFont(Font.font("Georgia", FontWeight.BOLD, 18));
 
-		btNewUser.setPrefSize(12, 12);
+		btNewUser.setPrefSize(20, 20);
 		btNewUser.setContentDisplay(ContentDisplay.BOTTOM);
 
 		Label label = new Label("Who's eating?");
@@ -104,13 +95,22 @@ public class main extends Application {
 			});
 
 		}
+		//A test button to test out new gui windows while we figure out how to change scenes
+		//please just comment out old tests. 
+		Button TEST = new Button("Test");
+		TEST.setOnAction(e -> {
+			Scene scene2  = new Scene(new NutritionGUI(), 500,500);
+			primaryStage.setScene(scene2);
+			primaryStage.setTitle("Nutrition");
+			primaryStage.show();
+		});
+		
+		tilePane.getChildren().add(TEST);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Eazy Peazy");
 		primaryStage.show();
-
-		User1.setOnAction(e -> {
-			stage2.show();
-		});
+		
+		
 		// Handling ActionEvent of a new user created
 		btNewUser.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
@@ -119,15 +119,6 @@ public class main extends Application {
 			}
 		});
 
-	}
-
-	public Stage createStage(Stage stage, String title, Scene scene) {
-
-		stage = new Stage();
-		stage.setTitle(title);
-		stage.setScene(scene);
-
-		return stage;
 	}
 
 	public static void handleNewUser() {
@@ -203,7 +194,7 @@ public class main extends Application {
 		addProfileWindow.show();
 
 	}
-
+	
 	public static void main(String[] args) {
 
 		Application.launch(args);

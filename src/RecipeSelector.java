@@ -87,7 +87,16 @@ public class RecipeSelector {
 		return meal;
 
 	}
-
+	public static void checkUnique(List<Recipe> recipeList) {
+		for(int i = 0; i < recipeList.size(); i++) {
+			for(int j = i + 1; j < recipeList.size(); j++) {
+				if(recipeList.get(i).getTitle().equalsIgnoreCase(recipeList.get(j).getTitle())) {
+					recipeList.remove(j);
+				}
+			}
+		}
+	}
+	
 	public static void shutdown() {
 		PrintWriter pw = null;
 

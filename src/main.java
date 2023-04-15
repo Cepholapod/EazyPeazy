@@ -226,7 +226,7 @@ public class main extends Application {
 
 		System.out.println("Do you want to create a recipe? (Yes/No)");
 		if (sc.next().equalsIgnoreCase("Yes"))
-			createRecipe();
+			//createRecipe();
 
 		// RecipeSelector rs = new RecipeSelector();
 		// RecipeSelector vs = new VeganDecorator();

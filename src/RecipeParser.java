@@ -13,8 +13,10 @@ import java.io.BufferedReader;
 
 /**
  * 
- * @author sethm DESCRIPTION: takes information from recipe.txt and returns
+ * @author sethm 
+ * DESCRIPTION: takes information from recipe.txt and returns
  *         recipe object
+ *  Methods: RecipeReader(File F)
  */
 public class RecipeParser {
 
@@ -112,4 +114,3 @@ public class RecipeParser {
     }
 
 }
-//

@@ -9,9 +9,9 @@ import java.util.*;
 
 /**
  * 
- * @author sethm I am going to try something out over the weekend so if you are
- *         reading this then know that if this doesn't work out. we will go back
- *         to the og plan
+ * @author sethm 
+ * Description: All set and get methods for the class vars, toString
+ * String print(), void CreateRecipe()
  */
 public class Recipe {
 
@@ -331,4 +331,4 @@ public class Recipe {
 }
 
 }
-//asdf
+

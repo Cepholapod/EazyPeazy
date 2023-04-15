@@ -1,8 +1,9 @@
 
 /*EzeayPeazy Meal
  * DEV @ Seth Glover 
- * DESCRIPTION This might not be needed but I am leaving this here for now. 
- * DATE
+ * DESCRIPTION Methods getCalories(), setCalories(), getSide(), setSide(Recipe Side), 
+ * getDesert(), setDesert(Recipe desert) compareTo(Meal other)
+ * DATE 15 April
  */
 public class Meal implements Comparable <Meal> {
 	double calories; 
@@ -40,6 +41,9 @@ public class Meal implements Comparable <Meal> {
 
 	public void setDessert(Recipe dessert) {
 		this.dessert = dessert;
+	}
+	public Recipe getEntree() {
+		return entree;
 	}
 
 	public void setEntree(Recipe entree) {

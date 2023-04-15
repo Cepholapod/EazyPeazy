@@ -65,9 +65,13 @@ public class RecipeParser {
                 //Splitting of the directions string and adding to list
                 String[] values2 = values[20].split("&");
 
-                for (int i = 0; i < values2.length; i++) {
-                    directions.add(values2[i]);
-                }
+                // Trimming whitespace
+				for (int i = 0; i < values2.length; i++) {
+					if(values2[i].charAt(values2[i].length() - 1) == ' ') {
+						values2[i] = values2[i].trim();
+					}
+					directions.add(values2[i]);
+				}
 
                 recipe.setDirections(directions);
 

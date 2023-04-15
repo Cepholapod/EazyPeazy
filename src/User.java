@@ -16,6 +16,7 @@ public class User {
 	private int weight;
 	private String username;
 	private ArrayList<String> dietaryRestrictions;
+	private ArrayList<Meal> userMeals;
 
 	public User() {
 		weight = 0;

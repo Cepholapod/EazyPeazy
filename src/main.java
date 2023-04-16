@@ -4,6 +4,8 @@ import javafx.event.EventHandler;
 import javafx.scene.control.TextField;
 import java.io.File;
 import java.util.*;
+
+import FinalProject.MenuRecipeGUI;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -21,9 +23,9 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 public class main extends Application {
-	public static List<Recipe> entrees;
-	public static List<Recipe> sides;
-	public static List<Recipe> desserts;
+	public static List<Recipe> entrees = new ArrayList<Recipe>();
+	public static List<Recipe> sides = new ArrayList<Recipe>();
+	public static List<Recipe> desserts = new ArrayList<Recipe>();
 	public static String tag;
 	private Image userImage;
 	//final public static Image newUser = new Image("UserImage/NewUser.PNG");
@@ -92,7 +94,7 @@ public class main extends Application {
 		//please just comment out old tests.
 		Button TEST = new Button("Test");
 		TEST.setOnAction(e -> {
-			//free real estate 		
+			//CHANGE AllRecipesGUI gui = new AllRecipesGUI(); 		
 		});
 		
 		tilePane.getChildren().add(TEST);
@@ -192,11 +194,6 @@ public class main extends Application {
 		return this.userImage;
 	}
 	public static void main(String[] args) {
-
-		Application.launch(args);
-
-		// we can change this, but the top is how we could initialize the lists before
-		// any tags, and the else would be when we have a tag!
 		if (tag == null) {
 			entrees = RecipeSelector.entreeSelector(new File("Entree.txt"));
 			sides = RecipeSelector.sideSelector(new File("Side.txt"));
@@ -206,6 +203,10 @@ public class main extends Application {
 			sides = DietDecorator.sideSelector(new File("Side.txt"), tag);
 			desserts = DietDecorator.dessertSelector(new File("Dessert.txt"), tag);
 		}
+		
+		Application.launch(args);
+
+		
 
 // 		Scanner sc = new Scanner(System.in);
 // 		File f = new File("Recipe.txt");

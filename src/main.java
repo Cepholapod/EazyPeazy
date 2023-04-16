@@ -1,19 +1,12 @@
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-
 import javafx.scene.control.TextField;
-
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.*;
 import javafx.scene.layout.*;
@@ -23,9 +16,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Arc;
-import javafx.scene.shape.ArcType;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -37,8 +27,8 @@ public class main extends Application {
 	public static String tag;
 	//final public static Image newUser = new Image("UserImage/NewUser.PNG");
 	final public static TilePane tilePane = new TilePane();
-	public Stage stage2;
-
+	
+	
 	// Dev @GLOVER Start function contains 'Who is eating?'
 	public void start(Stage primaryStage) {
 		
@@ -95,7 +85,7 @@ public class main extends Application {
 			});
 
 		}
-		//A test button to test out new gui windows while we figure out how to change scenes
+		//A test button to test out new GUI windows while we figure out how to change scenes
 		//please just comment out old tests. 
 		Button TEST = new Button("Test");
 		TEST.setOnAction(e -> {

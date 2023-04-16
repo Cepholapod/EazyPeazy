@@ -1,10 +1,11 @@
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class UserGUI extends Pane{
+public class UserGUI extends TilePane{
 	
 	public UserGUI () {
 		

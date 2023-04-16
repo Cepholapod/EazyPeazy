@@ -1,6 +1,10 @@
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
@@ -8,9 +12,20 @@ import javafx.scene.shape.ArcType;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
-public class NutritionGUI extends VBox{
+public class NutritionGUI extends Pane{
+	
+	double carbs = 100;
+	double protein = 57;
+	double fat = 170;
+	double weight = 180;
+	double calConstant = 15;
+	
 	
 	public NutritionGUI() {
+		//carbs = user.getCarbs();
+		//fat = user.getFat();
+		//protein = user.getProtien();
+		// weight = user.getweigth();
 		nutrition();
 	}
 	
@@ -19,48 +34,46 @@ public class NutritionGUI extends VBox{
 		Label carbs = new Label(), protein = new Label(), fat = new Label();
 		nutritionWindow.setTitle("Nutrition"); 
 		
-		Circle circle = new Circle(50,Color.GRAY);
-		getChildren().add(circle);
-		setAlignment(Pos.CENTER);
+		ObservableList<PieChart.Data> pieChartData = 
+				FXCollections.observableArrayList(
+						new PieChart.Data("Protien", proteinDailyValue()),
+						new PieChart.Data("Carbs", carbDailyValue()),
+						new PieChart.Data("Fat", fatDailyValue()));
+		final PieChart chart = new PieChart(pieChartData);
+		chart.setTitle("Macros");
 		
-		 widthProperty().addListener((obs, oldVal, newVal) -> {
-	            // Update the radius of the circle to be half the width of the pane
-	            circle.setRadius(newVal.doubleValue() / 4);
-	        });
-		
-	    widthProperty().addListener((obs, oldVal, newVal) -> {
-            // Update the radius of the circle to be half the width of the pane
-            circle.setRadius(newVal.doubleValue() / 4);
-        });
-		
-	    
-	    Arc proteinArc = new Arc();
-	    Arc carbArc = new Arc();
-	    Arc fatArc = new Arc();
-	    
-	    proteinArc.setCenterX(circle.getCenterX());
-        proteinArc.setCenterY(circle.getCenterY());
-        proteinArc.setRadiusX(circle.getRadius());
-        proteinArc.setRadiusY(circle.getRadius());
-        proteinArc.setStartAngle(0);
-        proteinArc.setLength(120);
-        proteinArc.setType(ArcType.ROUND);
-        proteinArc.setStroke(Color.BLUE);
-        proteinArc.setStrokeWidth(5);
-        // Scale the arc's properties with the width of the VBox
-        widthProperty().addListener((obs, oldVal, newVal) -> {
-            proteinArc.setRadiusX(newVal.doubleValue() / 4);
-            proteinArc.setRadiusY(newVal.doubleValue() / 4);
-            proteinArc.setCenterX(newVal.doubleValue() / 2);
-            proteinArc.setCenterY(newVal.doubleValue() / 2);
-            proteinArc.setStrokeWidth(newVal.doubleValue() / 50);
-        });
-	    setStyle("-fx-background-color: silver;");
-	    
-	    getChildren().add(proteinArc);
+		getChildren().add(chart);
+				
 
+	    setStyle("-fx-background-color: whitesmoke;");
+	    
+	   
 	}
 	
+	public double fatDailyValue () {
+		
+		double percentFat = this.fat/(.3*(this.weight * calConstant));
+		
+		return percentFat *100;
+		
+	}
+	
+	public double carbDailyValue () {
+		
+		double percentCarb = this.carbs/(.3*(this.weight * calConstant));
+		
+		return percentCarb *100;
+		
+		}
+	
 
+
+	public double proteinDailyValue () {
+	
+		double percentProtein = this.protein/(.4*(this.weight * calConstant));
+	
+		return percentProtein * 100;
+	
+	}
 	
 }

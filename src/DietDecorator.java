@@ -7,7 +7,7 @@ public class DietDecorator extends RecipeSelector {
     public static List<String> tags = new ArrayList<>();
 
     //if the tag is in the recipe, then it adds it to the new list!
-    public static List<Recipe> flagFinder(String tagflag) {
+    private static List<Recipe> flagFinder(String tagflag) {
         for (int i = 0; i < recipes.size(); i++) {
             tags = recipes.get(i).getTags();
             for (String tag : tags) {

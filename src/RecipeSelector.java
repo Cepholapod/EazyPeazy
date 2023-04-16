@@ -8,9 +8,9 @@ import java.util.Random;
 public class RecipeSelector {
 
 	// Exceptions are already taken care of in the Recipe Parser
-	static List<Recipe> entrees = entreeSelector(new File("Entree.txt"));
-	static List<Recipe> sides = sideSelector(new File("Side.txt"));
-	static List<Recipe> desserts = dessertSelector(new File("Dessert.txt"));
+	//main.entrees = entreeSelector(new File("Entree.txt"));
+	//main.sides = sideSelector(new File("Side.txt"));
+	//main.desserts = dessertSelector(new File("Dessert.txt"));
 
 // One big setup method called once vs 3 smaller methods all called once in file
 
@@ -74,12 +74,12 @@ public class RecipeSelector {
 
 	public Meal randomSelector() {
 		Meal meal = null;
-		if (!entrees.isEmpty() && !sides.isEmpty() && !desserts.isEmpty()) {
+		if (!main.entrees.isEmpty() && !main.sides.isEmpty() && !main.desserts.isEmpty()) {
 			Random rand = new Random();
 
-			Recipe randomEntree = entrees.get(rand.nextInt(entrees.size()));
-			Recipe randomSide = sides.get(rand.nextInt(sides.size()));
-			Recipe randomDessert = desserts.get(rand.nextInt(desserts.size()));
+			Recipe randomEntree = main.entrees.get(rand.nextInt(main.entrees.size()));
+			Recipe randomSide = main.sides.get(rand.nextInt(main.sides.size()));
+			Recipe randomDessert = main.desserts.get(rand.nextInt(main.desserts.size()));
 
 			meal = new Meal(randomEntree, randomSide, randomDessert);
 		}
@@ -110,8 +110,8 @@ public class RecipeSelector {
 					"title	type	Prep_time	Cook_time	Servings	Calories	Fat	Carbs	Protein	tag1	tag2	tag3	"
 							+ "tag4	tag5	tag6	tag7	tag8	tag9	tag10	tag11	steps	"
 							+ "ingredients	amounts	units");
-			for (int i = 0; i < RecipeSelector.entrees.size(); i++) {
-				pw.println(RecipeSelector.entrees.get(i));
+			for (int i = 0; i < main.entrees.size(); i++) {
+				pw.println(main.entrees.get(i));
 			}
 
 			pw.close();
@@ -122,8 +122,8 @@ public class RecipeSelector {
 					"title	type	Prep_time	Cook_time	Servings	Calories	Fat	Carbs	Protein	tag1	tag2	tag3	"
 							+ "tag4	tag5	tag6	tag7	tag8	tag9	tag10	tag11	steps	"
 							+ "ingredients	amounts	units");
-			for (int i = 0; i < RecipeSelector.sides.size(); i++) {
-				pw.println(RecipeSelector.sides.get(i));
+			for (int i = 0; i < main.sides.size(); i++) {
+				pw.println(main.sides.get(i));
 			}
 			
 			pw.close();
@@ -136,8 +136,8 @@ public class RecipeSelector {
 							+ "ingredients	amounts	units");
 			
 			
-			for (int i = 0; i < RecipeSelector.desserts.size(); i++) {
-				pw.println(RecipeSelector.desserts.get(i));
+			for (int i = 0; i < main.desserts.size(); i++) {
+				pw.println(main.desserts.get(i));
 			}
 
 		} catch (FileNotFoundException fnf) {

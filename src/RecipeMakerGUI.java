@@ -350,20 +350,20 @@ public class RecipeMakerGUI extends Pane {
 	// Checks for unique name against all lists
 	public static boolean checkUniqueName(String title) {
 
-		for (int i = 0; i < RecipeSelector.entrees.size(); i++) {
-			if (title.equalsIgnoreCase(RecipeSelector.entrees.get(i).getTitle())) {
+		for (int i = 0; i < main.entrees.size(); i++) {
+			if (title.equalsIgnoreCase(main.entrees.get(i).getTitle())) {
 				return false;
 			}
 		}
 
-		for (int i = 0; i < RecipeSelector.sides.size(); i++) {
-			if (title.equalsIgnoreCase(RecipeSelector.sides.get(i).getTitle())) {
+		for (int i = 0; i < main.sides.size(); i++) {
+			if (title.equalsIgnoreCase(main.sides.get(i).getTitle())) {
 				return false;
 			}
 		}
 
-		for (int i = 0; i < RecipeSelector.desserts.size(); i++) {
-			if (title.equalsIgnoreCase(RecipeSelector.desserts.get(i).getTitle())) {
+		for (int i = 0; i < main.desserts.size(); i++) {
+			if (title.equalsIgnoreCase(main.desserts.get(i).getTitle())) {
 				return false;
 			}
 		}

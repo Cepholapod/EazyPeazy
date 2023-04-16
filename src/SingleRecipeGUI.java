@@ -3,7 +3,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.scene.Group;
@@ -15,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -26,14 +26,14 @@ import javafx.stage.Stage;
 /* NOTE: Hashmaps still being consistantly weird, and the scrollbar is not cooperating, ill keep looking into it
  * (Can no longer run by itself, must be ran from main)
 */
-public class SingleRecipeGUI extends Application {
+public class SingleRecipeGUI extends Pane {
 	static Recipe test = new Recipe();
 	static Label ingredients;
 	static Label directions;
 	static Label title;
 
-	@Override
-	public void start(Stage stage) {
+	public SingleRecipeGUI() {
+		Stage stage = new Stage();
 		//Instantiating labels
 		
 		ingredients = new Label("Ingredients");
@@ -141,9 +141,6 @@ public class SingleRecipeGUI extends Application {
 		stage.show();
 	}
 
-	public static void main(String[] args) {
-		launch();
-	}
 	
 	// Method that will most likely be used to pass the recipe to here
 	public void setRecipe(Recipe recipe) {

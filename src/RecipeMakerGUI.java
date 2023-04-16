@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,13 +11,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 // camsona - Recipe Maker GUI - Lets the user know when an invalid input has been put in, wont add them if invalid.
 //								Investigating why the hashmaps being weird again
-public class RecipeMakerGUI extends Application {
+public class RecipeMakerGUI extends Pane {
 	// Lists that hold the labels, text fields, and side labels respectively
 	static ArrayList<Label> labArr = new ArrayList<>();
 	static ArrayList<TextField> textArr = new ArrayList<>();
@@ -44,13 +44,11 @@ public class RecipeMakerGUI extends Application {
 
 	Stage stage1 = new Stage();
 	
-	static Recipe recipe = new Recipe();
+	static Recipe recipe;
 
 	
-	@Override
-	public void start(Stage stage) {
+	public RecipeMakerGUI() {
 		// Creating the border pane that will hold the main panes
-		recipe = new Recipe();
 		BorderPane bpane = new BorderPane();
 
 		bpane.setStyle("-fx-background-color:  #aac4e8;");
@@ -328,7 +326,6 @@ public class RecipeMakerGUI extends Application {
 			}
 		});
 
-		stage1 = stage;
 		// Creating the scene with the overall Border pane and setting it to the stage
 		Scene scene = new Scene(bpane, 640, 640);
 		stage1.setScene(scene);
@@ -348,9 +345,7 @@ public class RecipeMakerGUI extends Application {
 		stage1.show();
 	}
 
-	public static void main(String[] args) {
-		launch();
-	}
+
 
 	// Checks for unique name against all lists
 	public static boolean checkUniqueName(String title) {
@@ -474,15 +469,17 @@ public class RecipeMakerGUI extends Application {
 		return recipe;
 	}
 	
+	public void clearRecipe() {
+		recipe = new Recipe();
+	}
 	
 	//
 	public void close() {
-			Test t = new Test();
-			stage1.setScene(t.getMainScene());
-
-		
-
-		
+		Scene scene1 = new Scene(new UserGUI(), 500,500);
+		stage1.setScene(scene1);
+		stage1.setTitle("UserName");
+		stage1.close();
+		stage1.show();
 		for(int i = 0; i < 15; i++) {
 			labArr.get(i).setText("");
 			textArr.get(i).setText("");
@@ -491,4 +488,3 @@ public class RecipeMakerGUI extends Application {
 	}
 
 }
-

@@ -127,6 +127,9 @@ public class Recipe {
 	public String getType() {
 		return this.type;
 	}
+	public String getTime() {
+		return "Prep: " + prepTime + " Cook: " + cookTime;
+	}
 	//I (jessie) added this method
 	public List<String> getTags(){
 		return Tags;

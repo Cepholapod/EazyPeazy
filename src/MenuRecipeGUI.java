@@ -31,16 +31,25 @@ public class MenuRecipeGUI extends Pane{
 	}
 	
 	public void setNumMeals(int quantity) {
+		if(main.entrees == null)
+			System.out.println("Entrees is empty");
+		System.out.println(main.entrees.size());
 		List<Recipe> entrees = main.entrees;
+		if(main.sides == null)
+			System.out.println("Sides is empty");
+		System.out.println(main.sides.size());
 		List<Recipe> sides = main.sides;
+		if(main.desserts == null)
+			System.out.println("Desserts is empty");
 		List<Recipe> desserts = main.desserts;
+		System.out.println(main.desserts.size());
 		for (int i = 1; i<= quantity; i++) {
 			numLBL.add(new Label(String.valueOf(i)));
 			
 			//meal
-			Recipe entree = entrees.remove((int)Math.random()*entrees.size());
-			Recipe side = sides.remove((int)Math.random()*sides.size());
-			Recipe dessert = desserts.remove((int)Math.random()*desserts.size());
+			Recipe entree = entrees.remove((int)Math.random()*entrees.size()-1);
+			Recipe side = sides.remove((int)Math.random()*sides.size()-1);
+			Recipe dessert = desserts.remove((int)Math.random()*desserts.size()-1);
 			//Meal meal = new Meal(entree, side, dessert);
 			//meals.add(meal);
 			entreesBTN.add(new Button(entree.getTitle()));

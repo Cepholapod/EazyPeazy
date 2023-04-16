@@ -32,7 +32,9 @@ public class SingleRecipeGUI extends Pane {
 	static Label directions;
 	static Label title;
 
-	public SingleRecipeGUI() {
+	public SingleRecipeGUI(Recipe recipe) {
+		test = recipe;
+		
 		Stage stage = new Stage();
 		//Instantiating labels
 		

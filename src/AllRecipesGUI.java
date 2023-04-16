@@ -7,7 +7,10 @@ import java.util.*;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
+import javafx.scene.text.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -20,64 +23,67 @@ public class AllRecipesGUI extends Pane{
 	private Label sidesLBL = new Label("Sides");
 	private Label dessertsLBL = new Label("Desserts");
 	private GridPane pane = new GridPane();
+	private Recipe tempRecipe;
 	
 	public AllRecipesGUI() {
 		Stage AllRecipesStage = new Stage();
 		pane.setHgap(10);
 		pane.setVgap(10);
 		pane.setAlignment(Pos.CENTER);
-	   // pane.setPrefWrapLength(300); // preferred width = 300
+		pane.setStyle("-fx-background-color:  #aac4e8;");
+
+		Font font = Font.font("Verdana", FontWeight.EXTRA_BOLD, 25);
+		entreesLBL.setFont(font);
+		sidesLBL.setFont(font);
+		dessertsLBL.setFont(font);
 		
-		//List<Recipe> entrees = main.entrees;
-		//List<Recipe> sides = main.sides;
-		//List<Recipe> desserts = main.desserts;
-		for(Recipe entree : main.entrees)
-			entreesBTN.add(new Button(entree.getTitle()));
-		for(Recipe side : main.sides)
-			sidesBTN.add(new Button(side.getTitle()));
-		for(Recipe dessert : main.desserts)
-			dessertsBTN.add(new Button(dessert.getTitle()));
+		//Adding entrees
+		pane.addRow(0, entreesLBL);
+		for(int i = 0; i<main.entrees.size(); i++) {
+			tempRecipe = main.entrees.get(i);
+			entreesBTN.add(new Button(tempRecipe.getTitle()));
+			pane.addRow(1, entreesBTN.get(i));
+			entreesBTN.get(i).setOnAction(e ->{
+				SingleRecipeGUI gui = new SingleRecipeGUI(tempRecipe);
+				//gui.setRecipe(tempRecipe);
+			});
+		}
+		//Adding sides
+		pane.addRow(3, sidesLBL);
+		for(int i = 0; i<main.sides.size(); i++) {
+			tempRecipe = main.sides.get(i);
+			sidesBTN.add(new Button(tempRecipe.getTitle()));
+			pane.addRow(4, sidesBTN.get(i));
+			sidesBTN.get(i).setOnAction(e ->{
+				SingleRecipeGUI gui = new SingleRecipeGUI(tempRecipe);
+				//gui.setRecipe(tempRecipe);
+			});
+		}
+		//Adding desserts
+		pane.addRow(6, dessertsLBL);
+		for(int i = 0; i<main.desserts.size(); i++) {
+			tempRecipe = main.desserts.get(i);
+			dessertsBTN.add(new Button(tempRecipe.getTitle()));
+			pane.addRow(7, dessertsBTN.get(i));
+			dessertsBTN.get(i).setOnAction(e ->{
+				SingleRecipeGUI gui = new SingleRecipeGUI(tempRecipe);
+				//gui.setRecipe(tempRecipe);
+			});
+		}
+		
+		//exit button
+		Button exitBTN = new Button("Exit");
+		exitBTN.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			AllRecipesStage.close();
+		});
+		pane.addRow(9, exitBTN);
+		
 	
-		pane.getChildren().add(entreesLBL);
-	    pane.getChildren().addAll(entreesBTN);
-	    
-		//init();
 		Scene scene = new Scene(pane, 640, 480);
 		AllRecipesStage.setTitle("All Recipes Available");
 		//pane.setPrefSize(300, 300);
 		//pane.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
 		AllRecipesStage.setScene(scene);
 		AllRecipesStage.show();
-	}
-	
-	public void init() {
-		if(main.entrees == null)
-			System.out.println("Entrees is empty");
-		System.out.println(main.entrees.size());
-		List<Recipe> entrees = main.entrees;
-		if(main.sides == null)
-			System.out.println("Sides is empty");
-		System.out.println(main.sides.size());
-		List<Recipe> sides = main.sides;
-		if(main.desserts == null)
-			System.out.println("Desserts is empty");
-		List<Recipe> desserts = main.desserts;
-		System.out.println(main.desserts.size());
-		for (int i = 1; i<= quantity; i++) {
-			numLBL.add(new Label(String.valueOf(i)));
-			
-			//meal
-			Recipe entree = entrees.remove((int)Math.random()*entrees.size()-1);
-			Recipe side = sides.remove((int)Math.random()*sides.size()-1);
-			Recipe dessert = desserts.remove((int)Math.random()*desserts.size()-1);
-			//Meal meal = new Meal(entree, side, dessert);
-			//meals.add(meal);
-			entreesBTN.add(new Button(entree.getTitle()));
-			sidesBTN.add(new Button(side.getTitle()));
-			dessertsBTN.add(new Button(dessert.getTitle()));
-			timeLBL.add(new Label("Entree: " + entree.getTime() + ", Side: " + side.getTime() + ", Dessert: " + dessert.getTime()));
-			int index = i-1;
-			pane.addRow(index, numLBL.get(index), entreesBTN.get(index), sidesBTN.get(index), dessertsBTN.get(index), timeLBL.get(index));
-		}
 	}
 }

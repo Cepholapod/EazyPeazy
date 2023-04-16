@@ -143,7 +143,7 @@ public class SingleRecipeGUI extends Pane {
 
 	
 	// Method that will most likely be used to pass the recipe to here
-	public void setRecipe(Recipe recipe) {
+	public static void setRecipe(Recipe recipe) {
 		test = recipe;
 	}
 	

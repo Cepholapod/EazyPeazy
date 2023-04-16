@@ -36,8 +36,8 @@ public class main extends Application {
 		BorderPane borderPane = new BorderPane();
 		Scene scene = new Scene(borderPane, 800, 700);
 	
-		//Image newUser = new Image("UserImage/NewUser.PNG");
-	
+		Image userImage = new Image(getClass().getResourceAsStream("UserImage/UserBlue.PNG"));
+		
 
 		
 		Button btNewUser = new Button("New User...");
@@ -70,7 +70,9 @@ public class main extends Application {
 			final Button button = new Button("" + users.get(i).getUsername());
 			button.setContentDisplay(ContentDisplay.TOP);
 			button.setFont(Font.font("Georgia", FontWeight.BOLD, 18));
-			// button.setPrefSize(80, 30);
+			button.setPrefSize(100, 100);
+			ImageView userView = new ImageView(userImage);
+			button.setGraphic(userView);
 			tilePane.getChildren().add(button);
 
 			button.setOnAction(new EventHandler<ActionEvent>() {

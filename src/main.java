@@ -78,21 +78,21 @@ public class main extends Application {
 
 					String username = button.getText();
 					User user = User.getUserByUsername(username);
-					// Add a method to open new stage, depending on profile chosen (given by
-					// username)
+					Scene scene2  = new Scene(new UserGUI(), 500,500);
+					primaryStage.setScene(scene2);
+					primaryStage.setTitle(username);
+					primaryStage.show();
 
 				}
 			});
 
 		}
 		//A test button to test out new GUI windows while we figure out how to change scenes
-		//please just comment out old tests. 
+		//please just comment out old tests.
+		
 		Button TEST = new Button("Test");
 		TEST.setOnAction(e -> {
-			Scene scene2  = new Scene(new NutritionGUI(), 500,500);
-			primaryStage.setScene(scene2);
-			primaryStage.setTitle("Nutrition");
-			primaryStage.show();
+			//free real estate 		
 		});
 		
 		tilePane.getChildren().add(TEST);

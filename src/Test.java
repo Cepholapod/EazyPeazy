@@ -17,8 +17,24 @@ public class Test extends Application {
 
 		stage.close();
 		
-		stage1.setScene(getMainScene());
+		GridPane gpane = new GridPane();
 		
+		Button b1 = new Button("Recipe Maker");
+		b1.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			Scene scene1 = new Scene(new RecipeMakerGUI(), 400,400);
+			stage1.setScene(scene1);
+		});
+		Button b2 = new Button("Single Recipe");
+		b2.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+			Scene scene1 = new Scene(new SingleRecipeGUI(), 400,400);
+			stage1.setScene(scene1);
+		});
+		gpane.add(b1, 0, 0);
+		gpane.add(b2, 1, 0);
+		
+		Scene scene = new Scene(gpane, 440,440);
+
+		stage1.setScene(scene);
 		
 		
 		stage1.show();
@@ -27,29 +43,7 @@ public class Test extends Application {
 	public static void main(String[] args) {
 		launch();
 	}
-	
-	public Scene getMainScene() {
-		RecipeMakerGUI rm = new RecipeMakerGUI();
-		SingleRecipeGUI mt = new SingleRecipeGUI();
-		//SingleRecipeGUI sg = new SingleRecipeGUI();
-		
-		GridPane gpane = new GridPane();
-		Button b1 = new Button("Recipe Maker");
-		b1.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-			rm.start(stage1);
-		});
-		Button b2 = new Button("Single Recipe");
-		b2.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-			mt.setRecipe(rm.getRecipe());
-			mt.start(stage1);
-		});
-		gpane.add(b1, 0, 0);
-		gpane.add(b2, 1, 0);
-		
-		Scene scene = new Scene(gpane, 440,440);
 
-		return scene;
-	}
 	
 
 }

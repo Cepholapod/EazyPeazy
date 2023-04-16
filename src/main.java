@@ -25,6 +25,7 @@ public class main extends Application {
 	public static List<Recipe> sides;
 	public static List<Recipe> desserts;
 	public static String tag;
+	private Image userImage;
 	//final public static Image newUser = new Image("UserImage/NewUser.PNG");
 	final public static TilePane tilePane = new TilePane();
 	
@@ -32,14 +33,12 @@ public class main extends Application {
 	// Dev @GLOVER Start function contains 'Who is eating?'
 	public void start(Stage primaryStage) {
 		
-		
 		BorderPane borderPane = new BorderPane();
 		Scene scene = new Scene(borderPane, 800, 700);
 	
 		Image userImage = new Image(getClass().getResourceAsStream("UserImage/UserBlue.PNG"));
-		
+		this.userImage = userImage;
 
-		
 		Button btNewUser = new Button("New User...");
 		btNewUser.setFont(Font.font("Georgia", FontWeight.BOLD, 18));
 
@@ -70,14 +69,14 @@ public class main extends Application {
 			final Button button = new Button("" + users.get(i).getUsername());
 			button.setContentDisplay(ContentDisplay.TOP);
 			button.setFont(Font.font("Georgia", FontWeight.BOLD, 18));
-			button.setPrefSize(100, 100);
+			button.setPrefSize(100, 100);//this effectively does nothing...
 			ImageView userView = new ImageView(userImage);
 			button.setGraphic(userView);
+			button.setStyle("-fx-background-color: transparent;");
 			tilePane.getChildren().add(button);
 
 			button.setOnAction(new EventHandler<ActionEvent>() {
 				public void handle(ActionEvent e) {
-
 					String username = button.getText();
 					User user = User.getUserByUsername(username);
 					Scene scene2  = new Scene(new UserGUI(), 500,500);
@@ -91,7 +90,6 @@ public class main extends Application {
 		}
 		//A test button to test out new GUI windows while we figure out how to change scenes
 		//please just comment out old tests.
-		
 		Button TEST = new Button("Test");
 		TEST.setOnAction(e -> {
 			//free real estate 		
@@ -187,6 +185,12 @@ public class main extends Application {
 
 	}
 	
+	public void setUserImage(Image image) {
+		this.userImage = image;
+	}
+	public Image getUserImage() {
+		return this.userImage;
+	}
 	public static void main(String[] args) {
 
 		Application.launch(args);

@@ -21,7 +21,7 @@ public class NutritionGUI extends Pane{
 		this.user = user;
 		//carbs = user.getCarbs();
 		//fat = user.getFat();
-		//protein = user.getProtien();
+		//protein = user.getProtein();
 		// weight = user.getweight();
 		nutrition();
 	}

@@ -71,7 +71,7 @@ public class UserGUI extends TilePane{
 			//should take us back to startGUI
 		});
 		nutritionButton.setOnAction(e -> {
-			Scene scene2  = new Scene(new NutritionGUI(), 500,500);
+			Scene scene2  = new Scene(new NutritionGUI(), 640,640);
 			userWindow.setScene(scene2);
 			userWindow.setTitle("Nutrition");
 			userWindow.show();
@@ -84,12 +84,12 @@ public class UserGUI extends TilePane{
 			userWindow.show();
 		});
 		
-		displayButton.setOnAction(e -> {
-			Scene scene4 = new Scene(new SingleRecipeGUI(), 640, 640);
-			userWindow.setScene(scene4);
-			userWindow.setTitle("Recipe Viewer");
-			userWindow.show();
-		});
+//		displayButton.setOnAction(e -> {
+//			Scene scene4 = new Scene(new SingleRecipeGUI(), 640, 640);
+//			userWindow.setScene(scene4);
+//			userWindow.setTitle("Recipe Viewer");
+//			userWindow.show();
+//		});
 		
 		setStyle("-fx-background-color: whitesmoke");
 		

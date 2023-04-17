@@ -24,13 +24,13 @@ public class Test extends Application {
 			Scene scene1 = new Scene(new RecipeMakerGUI(), 400,400);
 			stage1.setScene(scene1);
 		});
-		Button b2 = new Button("Single Recipe");
-		b2.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-			Scene scene1 = new Scene(new SingleRecipeGUI(), 400,400);
-			stage1.setScene(scene1);
-		});
+//		Button b2 = new Button("Single Recipe");
+//		b2.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+//			Scene scene1 = new Scene(new SingleRecipeGUI(), 400,400);
+//			stage1.setScene(scene1);
+//		});
 		gpane.add(b1, 0, 0);
-		gpane.add(b2, 1, 0);
+//		gpane.add(b2, 1, 0);
 		
 		Scene scene = new Scene(gpane, 440,440);
 

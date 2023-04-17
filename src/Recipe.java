@@ -1,12 +1,6 @@
 import java.io.File;
 import java.util.*;
 
-
-
-//import com.fasterxml.jackson.databind.JsonNode;
-//import com.fasterxml.jackson.databind.node.ArrayNode;
-//import com.fasterxml.jackson.databind.node.ObjectNode;
-
 /**
  * 
  * @author sethm 
@@ -317,13 +311,13 @@ public class Recipe {
 			Recipe temp = new Recipe(title, type, Tags, prepTime, cookTime, servings, Ingredients, units, calories, fat,
 					carbs, protein, Directions);
 
-			if (type.equals("Entree")) {
-				RecipeSelector.entrees.add(temp);
-			} else if (type.equals("Side")) {
-				RecipeSelector.sides.add(temp);
-			} else if (type.equals("Dessert")) {
-				RecipeSelector.desserts.add(temp);
-			}
+//			if (type.equals("Entree")) {
+//				RecipeSelector.entrees.add(temp);
+//			} else if (type.equals("Side")) {
+//				RecipeSelector.sides.add(temp);
+//			} else if (type.equals("Dessert")) {
+//				RecipeSelector.desserts.add(temp);
+//			}
 
 			System.out.println("Your recipe has been created!");
 			

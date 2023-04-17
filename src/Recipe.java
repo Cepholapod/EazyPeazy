@@ -311,13 +311,13 @@ public class Recipe {
 			Recipe temp = new Recipe(title, type, Tags, prepTime, cookTime, servings, Ingredients, units, calories, fat,
 					carbs, protein, Directions);
 
-//			if (type.equals("Entree")) {
-//				RecipeSelector.entrees.add(temp);
-//			} else if (type.equals("Side")) {
-//				RecipeSelector.sides.add(temp);
-//			} else if (type.equals("Dessert")) {
-//				RecipeSelector.desserts.add(temp);
-//			}
+			if (type.equals("Entree")) {
+				main.entrees.add(temp);
+			} else if (type.equals("Side")) {
+				main.sides.add(temp);
+			} else if (type.equals("Dessert")) {
+				main.desserts.add(temp);
+			}
 
 			System.out.println("Your recipe has been created!");
 			

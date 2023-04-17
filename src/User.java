@@ -22,6 +22,7 @@ public class User {
 		weight = 0;
 		username = "NO NAME";
 		dietaryRestrictions = null;
+		this.userMeals = null; 
 
 	}
 
@@ -29,6 +30,8 @@ public class User {
 		this.weight = weight;
 		this.username = username;
 		this.dietaryRestrictions = dietaryRestrictions;
+		//we need to add user meals so that we can pull that data by user. 
+		//this.userMeals = meals;
 	}
 
 	public void setWeight(int weight) {

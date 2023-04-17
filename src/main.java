@@ -81,7 +81,7 @@ public class main extends Application {
 				public void handle(ActionEvent e) {
 					String username = button.getText();
 					User user = User.getUserByUsername(username);
-					Scene scene2  = new Scene(new UserGUI(), 500,500);
+					Scene scene2  = new Scene(new UserGUI(user), 500,500);
 					primaryStage.setScene(scene2);
 					primaryStage.setTitle(username);
 					primaryStage.show();

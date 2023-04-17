@@ -24,10 +24,10 @@ public class UserGUI extends TilePane{
 	private ImageView[] userImages = { new ImageView("UserImage/UserBlue.PNG"),new ImageView("UserImage/UserGreen.PNG"),
 			new ImageView("UserImage/UserOrange.PNG"),new ImageView("UserImage/UserPink.PNG")};
 	private ComboBox<String> comboBox = new ComboBox<>();
+	User user = new User();
 	
-	
-	public UserGUI () {
-		
+	public UserGUI (User user) {
+		this.user = user;
 		final Stage userWindow = new Stage();
 		main main = new main();
 		VBox titleBar = new VBox();//box for user image
@@ -71,17 +71,17 @@ public class UserGUI extends TilePane{
 			//should take us back to startGUI
 		});
 		nutritionButton.setOnAction(e -> {
-			Scene scene2  = new Scene(new NutritionGUI(), 640,640);
+			Scene scene2  = new Scene(new NutritionGUI(user), 640,640);
 			userWindow.setScene(scene2);
 			userWindow.setTitle("Nutrition");
 			userWindow.show();
 		});
 		
 		recipeMakerButton.setOnAction(e -> {
-			Scene scene3 = new Scene(new RecipeMakerGUI(), 500,500);
+			Scene scene3 = new Scene(new RecipeMakerGUI(user), 640,640);
 			userWindow.setScene(scene3);
 			userWindow.setTitle("Recipe Maker");
-			userWindow.show();
+			userWindow.close();
 		});
 		
 //		displayButton.setOnAction(e -> {

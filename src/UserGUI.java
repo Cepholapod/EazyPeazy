@@ -35,6 +35,10 @@ public class UserGUI extends TilePane{
 		
 		title = userWindow.getTitle();
 		Label label = new Label(title);//label for user image.
+		//sets user image as a default blue
+		userImage = userImages[0].getImage();
+		label.setGraphic(new ImageView(userImage));
+		label.setAlignment(Pos.TOP_LEFT);
 		titleBar.getChildren().add(label);
 		Button backButton = new Button("Back"), nutritionButton = new Button("Nutrition");
 		

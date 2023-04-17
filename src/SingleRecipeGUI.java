@@ -143,10 +143,4 @@ public class SingleRecipeGUI extends Pane {
 		stage.show();
 	}
 
-	
-	// Method that will most likely be used to pass the recipe to here
-	public static void setRecipe(Recipe recipe) {
-		test = recipe;
-	}
-	
 }

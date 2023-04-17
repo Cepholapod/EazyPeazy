@@ -81,7 +81,7 @@ public class UserGUI extends TilePane{
 			Scene scene3 = new Scene(new RecipeMakerGUI(), 500,500);
 			userWindow.setScene(scene3);
 			userWindow.setTitle("Recipe Maker");
-			userWindow.show();
+			userWindow.close();
 		});
 		
 //		displayButton.setOnAction(e -> {

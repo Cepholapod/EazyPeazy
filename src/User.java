@@ -22,6 +22,7 @@ public class User {
 		weight = 0;
 		username = "NO NAME";
 		dietaryRestrictions = null;
+		this.userMeals = null; 
 
 	}
 

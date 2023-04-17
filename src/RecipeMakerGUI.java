@@ -41,16 +41,20 @@ public class RecipeMakerGUI extends Pane {
 	static Map<String, Double> Ingredients = new HashMap<String, Double>();
 	static List<String> units = new ArrayList<String>();
 	static List<String> Directions = new ArrayList<String>();
-
+	
+	User user = new User();
+	
 	Stage stage1 = new Stage();
 	
 	static Recipe recipe;
 
 	
-	public RecipeMakerGUI() {
+	public RecipeMakerGUI(User user) {
 		// Creating the border pane that will hold the main panes
 		BorderPane bpane = new BorderPane();
-
+		
+		this.user = user;
+		
 		bpane.setStyle("-fx-background-color:  #aac4e8;");
 		// Pane that holds everything but the title
 		GridPane pane = new GridPane();
@@ -485,7 +489,7 @@ public class RecipeMakerGUI extends Pane {
 		}
 		
 		System.out.println(main.entrees);
-		Scene scene1 = new Scene(new UserGUI(), 500,500);
+		Scene scene1 = new Scene(new UserGUI(user), 500,500);
 		stage1.setScene(scene1);
 		stage1.setTitle("UserName");
 		for(int i = 0; i < 15; i++) {

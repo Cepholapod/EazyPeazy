@@ -15,13 +15,14 @@ public class NutritionGUI extends Pane{
 	double fat = 170;
 	double weight = 180;
 	double calConstant = 15;
-	
+	User user = new User();
 	//initiates vars will take User as parameter 
-	public NutritionGUI() {
+	public NutritionGUI(User user) {
+		this.user = user;
 		//carbs = user.getCarbs();
 		//fat = user.getFat();
 		//protein = user.getProtien();
-		// weight = user.getweigth();
+		// weight = user.getweight();
 		nutrition();
 	}
 	/**
@@ -48,9 +49,9 @@ public class NutritionGUI extends Pane{
 		getChildren().add(backButton);
 	    setStyle("-fx-background-color: whitesmoke;");
 		backButton.setOnAction(e -> {
-			Scene scene2  = new Scene(new UserGUI(), 500,500);
+			Scene scene2  = new Scene(new UserGUI(user), 500,500);
 			nutritionStage.setScene(scene2);
-			nutritionStage.setTitle("UserName");
+			nutritionStage.setTitle(user.getUsername());
 			nutritionStage.close();
 			nutritionStage.show();
 			

@@ -468,6 +468,7 @@ public class RecipeMakerGUI extends Pane {
 	public Recipe getRecipe() {
 		return recipe;
 	}
+
 	
 	public void clearRecipe() {
 		recipe = new Recipe();
@@ -475,11 +476,18 @@ public class RecipeMakerGUI extends Pane {
 	
 	//
 	public void close() {
+		if (type.equals("Entree")) {
+			main.entrees.add(recipe);
+		} else if (type.equals("Side")) {
+			main.sides.add(recipe);
+		} else if (type.equals("Dessert")) {
+			main.desserts.add(recipe);
+		}
+		
+		System.out.println(main.entrees);
 		Scene scene1 = new Scene(new UserGUI(), 500,500);
 		stage1.setScene(scene1);
 		stage1.setTitle("UserName");
-		stage1.close();
-		stage1.show();
 		for(int i = 0; i < 15; i++) {
 			labArr.get(i).setText("");
 			textArr.get(i).setText("");

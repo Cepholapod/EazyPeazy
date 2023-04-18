@@ -36,7 +36,7 @@ public class main extends Application {
 	public void start(Stage primaryStage) {
 		
 		BorderPane borderPane = new BorderPane();
-		Scene scene = new Scene(borderPane, 800, 700);
+		Scene scene = new Scene(borderPane, 800, 600);
 	
 		Image userImage = new Image(getClass().getResourceAsStream("UserImage/UserBlue.PNG"));
 		this.userImage = userImage;
@@ -81,7 +81,7 @@ public class main extends Application {
 				public void handle(ActionEvent e) {
 					String username = button.getText();
 					User user = User.getUserByUsername(username);
-					Scene scene2  = new Scene(new UserGUI(user), 500,500);
+					Scene scene2  = new Scene(new UserGUI(user), 800,600);
 					primaryStage.setScene(scene2);
 					primaryStage.setTitle(username);
 					primaryStage.show();

@@ -38,8 +38,6 @@ public class MenuRecipeGUI extends Pane {
 		pane.setHgap(10);
 		pane.setVgap(10);
 		pane.setAlignment(Pos.CENTER);
-		border.setCenter(pane);
-		border.setTop(menuLBL);
 				
 		Scene scene = new Scene(border, 1000, 500);
 		Stage MenuRecipesStage = new Stage();
@@ -101,8 +99,12 @@ public class MenuRecipeGUI extends Pane {
 		exitBTN.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			MenuRecipesStage.close();
 		});
+		
+		// setting up border pane
 		border.setBottom(exitBTN);
-
+		border.setCenter(pane);
+		border.setTop(menuLBL);
+		
 		MenuRecipesStage.setTitle("All Recipes Available");
 		MenuRecipesStage.setScene(scene);
 		MenuRecipesStage.show();

@@ -38,7 +38,8 @@ public class MenuRecipeGUI extends Pane {
 		pane.setHgap(10);
 		pane.setVgap(10);
 		pane.setAlignment(Pos.CENTER);
-				
+		border.setCenter(pane);
+
 		Scene scene = new Scene(border, 1000, 500);
 		Stage MenuRecipesStage = new Stage();
 
@@ -91,8 +92,7 @@ public class MenuRecipeGUI extends Pane {
 			row.setPercentHeight(100 / (numMeals + 1));
 			pane.getRowConstraints().add(row);
 		}
-		// addings elements to the pane
-		pane.addRow(0, mealInput, entreesLBL, sidesLBL, dessertsLBL, timesLBL);
+		
 
 		// exit button
 		Button exitBTN = new Button("Exit");
@@ -102,7 +102,6 @@ public class MenuRecipeGUI extends Pane {
 		
 		// setting up border pane
 		border.setBottom(exitBTN);
-		border.setCenter(pane);
 		border.setTop(menuLBL);
 		
 		MenuRecipesStage.setTitle("All Recipes Available");
@@ -112,9 +111,8 @@ public class MenuRecipeGUI extends Pane {
 
 	public void setNumMeals(int quantity) {
 		// test size
-		if (main.entrees.isEmpty() || main.entrees.size() < numMeals) {
+		if (main.entrees.isEmpty() || main.entrees.size() < numMeals)
 			System.out.println("Entrees only has " + main.entrees.size() + " recipes");
-		}
 		if (main.sides.isEmpty() || main.sides.size() < numMeals)
 			System.out.println("Sides only has " + main.sides.size() + " recipes");
 		System.out.println(main.sides.size());
@@ -125,6 +123,9 @@ public class MenuRecipeGUI extends Pane {
 		List<Recipe> entrees = main.entrees;
 		List<Recipe> sides = main.sides;
 		List<Recipe> desserts = main.desserts;
+		
+		// addings elements to the pane
+		pane.addRow(0, mealInput, entreesLBL, sidesLBL, dessertsLBL, timesLBL);
 		
 		//add all butttons
 		for (int i = 0; i <= quantity; i++) {

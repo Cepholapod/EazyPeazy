@@ -38,33 +38,31 @@ public class AllRecipesGUI extends Pane{
 		dessertsLBL.setFont(font);
 		
 		//Adding entrees
-		pane.addRow(0, entreesLBL);
+		pane.addColumn(0, entreesLBL);
 		for(int i = 0; i<main.entrees.size(); i++) {
 			tempRecipe = main.entrees.get(i);
 			entreesBTN.add(new Button(tempRecipe.getTitle()));
-			pane.addRow(1, entreesBTN.get(i));
+			pane.addColumn(0, entreesBTN.get(i));
 			entreesBTN.get(i).setOnAction(e ->{
 				SingleRecipeGUI gui = new SingleRecipeGUI(tempRecipe);
-				//gui.setRecipe(tempRecipe);
 			});
 		}
 		//Adding sides
-		pane.addRow(3, sidesLBL);
+		pane.addColumn(1, sidesLBL);
 		for(int i = 0; i<main.sides.size(); i++) {
 			tempRecipe = main.sides.get(i);
 			sidesBTN.add(new Button(tempRecipe.getTitle()));
-			pane.addRow(4, sidesBTN.get(i));
+			pane.addColumn(1, sidesBTN.get(i));
 			sidesBTN.get(i).setOnAction(e ->{
 				SingleRecipeGUI gui = new SingleRecipeGUI(tempRecipe);
-				//gui.setRecipe(tempRecipe);
 			});
 		}
 		//Adding desserts
-		pane.addRow(6, dessertsLBL);
+		pane.addColumn(2, dessertsLBL);
 		for(int i = 0; i<main.desserts.size(); i++) {
 			tempRecipe = main.desserts.get(i);
 			dessertsBTN.add(new Button(tempRecipe.getTitle()));
-			pane.addRow(7, dessertsBTN.get(i));
+			pane.addColumn(2, dessertsBTN.get(i));
 			dessertsBTN.get(i).setOnAction(e ->{
 				SingleRecipeGUI gui = new SingleRecipeGUI(tempRecipe);
 				//gui.setRecipe(tempRecipe);

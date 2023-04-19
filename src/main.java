@@ -94,7 +94,7 @@ public class main extends Application {
 		//please just comment out old tests.
 		Button TEST = new Button("Test");
 		TEST.setOnAction(e -> {
-			AllRecipesGUI gui = new AllRecipesGUI(); 		
+			MenuRecipeGUI gui = new MenuRecipeGUI(); 		
 		});
 		
 		tilePane.getChildren().add(TEST);

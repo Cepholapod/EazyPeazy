@@ -79,8 +79,6 @@ public class AllRecipesGUI extends Pane{
 	
 		Scene scene = new Scene(pane, 640, 480);
 		AllRecipesStage.setTitle("All Recipes Available");
-		//pane.setPrefSize(300, 300);
-		//pane.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
 		AllRecipesStage.setScene(scene);
 		AllRecipesStage.show();
 	}

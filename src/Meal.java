@@ -10,8 +10,15 @@ public class Meal implements Comparable <Meal> {
 	Recipe entree;
 	Recipe side;
 	Recipe dessert;
+	double carbs; 
+	double protein;
+	double fat;
 	
-	
+	public Meal() {
+		this.entree = RecipeSelector.randomEntree();
+		this.side = RecipeSelector.randomSide();
+		this.dessert = RecipeSelector.randomDessert();
+	}
 	public Meal (Recipe entree, Recipe side, Recipe dessert) {
 		this.entree = entree;
 		this.side = side;
@@ -48,6 +55,15 @@ public class Meal implements Comparable <Meal> {
 
 	public void setEntree(Recipe entree) {
 		this.entree = entree;
+	}
+	public double getFat() {
+		return side.getFat()+ entree.getFat()+dessert.getFat();
+	}
+	public double getCarbs() {
+		return side.getCarbs()+ entree.getCarbs()+dessert.getCarbs();
+	}
+	public double getProtein() {
+		return side.getProtein()+ entree.getProtein()+dessert.getProtein();
 	}
 
 	public int compareTo(Meal other) {

@@ -17,6 +17,7 @@ public class User {
 	private String username;
 	private ArrayList<String> dietaryRestrictions;
 	private ArrayList<Meal> userMeals;
+	Meal meal = new Meal();
 
 	public User() {
 		weight = 0;
@@ -45,7 +46,9 @@ public class User {
 	public void setDietaryRestrictions(ArrayList<String> dietaryRestrictions) {
 		this.dietaryRestrictions = dietaryRestrictions;
 	}
-
+	public void userMeals() {
+		RecipeSelector.randomSelector(meal);
+	}
 	public int getWeight() {
 		return weight;
 	}
@@ -121,6 +124,18 @@ public class User {
             }
         }
         return null; // no matching user found
+    }
+    public double getCarbs() {
+    	double carbs = meal.getCarbs();
+    	return carbs;
+    }
+    public double getProtein() {
+    	double protein = meal.getProtein();
+    	return protein;
+    }
+    public double getFat() {
+    	double fat = meal.getFat();
+    	return fat;
     }
 
 	public String getInfo() {

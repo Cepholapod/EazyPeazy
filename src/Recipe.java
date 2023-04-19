@@ -105,6 +105,18 @@ public class Recipe {
 	public void setFat(double fat) {
 		this.fat = fat;
 	}
+	
+	public double getFat() {
+		return this.fat;
+	}
+	public double getCarbs() {
+		return this.carbs;
+	}
+	public double getProtein() {
+		return this.protein;
+	}
+
+
 
 	public void setCarbs(double carbs) {
 		this.carbs = carbs;

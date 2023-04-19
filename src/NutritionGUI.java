@@ -40,11 +40,11 @@ public class NutritionGUI extends Pane{
 		//creates list for the pie chart. 
 		ObservableList<PieChart.Data> pieChartData = 
 				FXCollections.observableArrayList(
-						new PieChart.Data("Protien", proteinDailyValue()),
-						new PieChart.Data("Carbs", carbDailyValue()),
-						new PieChart.Data("Fat", fatDailyValue()));
+						new PieChart.Data("Protien" + String.format(": %.2f", proteinDailyValue()*100)+ "%", proteinDailyValue()),
+						new PieChart.Data("Carbs" + String.format(": %.2f", carbDailyValue()*100)+ "%", carbDailyValue()),
+						new PieChart.Data("Fat" + String.format(": %.2f", fatDailyValue()*100) +"%", fatDailyValue()));
 		final PieChart chart = new PieChart(pieChartData);
-		chart.setTitle("Macros");	
+		chart.setTitle("Macros");
 		getChildren().add(chart);
 		getChildren().add(backButton);
 	    setStyle("-fx-background-color: whitesmoke;");
@@ -60,20 +60,20 @@ public class NutritionGUI extends Pane{
 	
 	public double fatDailyValue () {
 		//calculates the total fat taken in by the amount needed by cal count
-		double percentFat = this.fat/(.3*(this.weight * calConstant));	
+		double percentFat = user.getFat()/(.3*(this.weight * calConstant));	
 		return percentFat;	
 	}
 	
 	public double carbDailyValue () {
 		//calculates the total carbs taken in by the amount needed by cal count
-		double percentCarb = this.carbs/(.3*(this.weight * calConstant));
+		double percentCarb = user.getCarbs()/(.3*(this.weight * calConstant));
 		
 		return percentCarb;		
 		}
 
 	public double proteinDailyValue () {
 		//calculates the total protein taken in by the amount needed by cal count
-		double percentProtein = this.protein/(.4*(this.weight * calConstant));
+		double percentProtein = user.getProtein()/(.4*(this.weight * calConstant));
 	
 		return percentProtein;
 	}

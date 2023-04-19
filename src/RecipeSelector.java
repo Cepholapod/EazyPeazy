@@ -72,8 +72,8 @@ public class RecipeSelector {
 		return desserts;
 	}
 
-	public Meal randomSelector() {
-		Meal meal = null;
+	public static Meal randomSelector(Meal meal) {
+		
 		if (!main.entrees.isEmpty() && !main.sides.isEmpty() && !main.desserts.isEmpty()) {
 			Random rand = new Random();
 
@@ -86,6 +86,22 @@ public class RecipeSelector {
 
 		return meal;
 
+	}
+	
+	public static Recipe randomEntree() {
+		Random rand = new Random();
+		Recipe randomEntree = main.entrees.get(rand.nextInt(main.entrees.size()));
+		return randomEntree;
+	}
+	public static Recipe randomSide() {
+		Random rand = new Random();
+		Recipe randomSide = main.sides.get(rand.nextInt(main.entrees.size()));
+		return randomSide;
+	}
+	public static Recipe randomDessert() {
+		Random rand = new Random();
+		Recipe randomDessert = main.desserts.get(rand.nextInt(main.entrees.size()));
+		return randomDessert;
 	}
 	public static void checkUnique(List<Recipe> recipeList) {
 		for(int i = 0; i < recipeList.size(); i++) {

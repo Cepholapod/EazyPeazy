@@ -7,30 +7,6 @@ import java.util.Random;
 
 public class RecipeSelector {
 
-	// Exceptions are already taken care of in the Recipe Parser
-	//main.entrees = entreeSelector(new File("Entree.txt"));
-	//main.sides = sideSelector(new File("Side.txt"));
-	//main.desserts = dessertSelector(new File("Dessert.txt"));
-
-// One big setup method called once vs 3 smaller methods all called once in file
-
-//	public static void setup(File entrees, File sides, File desserts) {
-//		File[] fileArr = { entrees, sides, desserts };
-//		for (int i = 1; i < 3; i++) {
-//			List<Recipe> recipes = RecipeParser.recipeReader(fileArr[i]);
-//
-//			for (Recipe recipe : recipes) {
-//				if (recipe.getType().equals("entree")) {
-//					RecipeSelector.entrees.add(recipe);
-//				} else if (recipe.getType().equals("side")) {
-//					RecipeSelector.sides.add(recipe);
-//				} else if (recipe.getType().equals("dessert")) {
-//					RecipeSelector.desserts.add(recipe);
-//				}
-//			}
-//
-//		}
-//	}
 
 	public static List<Recipe> entreeSelector(File f) {
 

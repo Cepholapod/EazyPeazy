@@ -4,6 +4,7 @@ import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -36,7 +37,6 @@ public class NutritionGUI extends Pane{
 		final Stage nutritionStage = new Stage();
 		this.nutritionStage = nutritionStage;
 		nutritionStage.setTitle("Nutrition");
-		Button backButton = new Button("Back");
 		//creates list for the pie chart. 
 		ObservableList<PieChart.Data> pieChartData = 
 				FXCollections.observableArrayList(
@@ -46,16 +46,7 @@ public class NutritionGUI extends Pane{
 		final PieChart chart = new PieChart(pieChartData);
 		chart.setTitle("Macros");
 		getChildren().add(chart);
-		getChildren().add(backButton);
 	    setStyle("-fx-background-color: whitesmoke;");
-		backButton.setOnAction(e -> {
-			Scene scene2  = new Scene(new UserGUI(user), 500,500);
-			nutritionStage.setScene(scene2);
-			nutritionStage.setTitle(user.getUsername());
-			nutritionStage.close();
-			nutritionStage.show();
-			
-		});
 	}
 	
 	public double fatDailyValue () {

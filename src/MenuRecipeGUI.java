@@ -89,7 +89,7 @@ public class MenuRecipeGUI extends Pane {
 		pane.getRowConstraints().add(row1);
 		for (int i = 0; i < numMeals + 1; i++) {
 			RowConstraints row = new RowConstraints();
-			row.setPercentHeight(100 / (numMeals + 1));
+			//row.setPercentHeight(100 / (numMeals + 1));
 			pane.getRowConstraints().add(row);
 		}
 		
@@ -111,6 +111,9 @@ public class MenuRecipeGUI extends Pane {
 
 	public void setNumMeals(int quantity) {
 		// test size
+		if(quantity < 0) {
+			throw new IllegalArgumentException("Number of meals connot be 0 ");
+		}
 		if (main.entrees.isEmpty() || main.entrees.size() < numMeals)
 			System.out.println("Entrees only has " + main.entrees.size() + " recipes");
 		if (main.sides.isEmpty() || main.sides.size() < numMeals)

@@ -42,7 +42,8 @@ public class UserGUI extends TilePane{
 		titleBar.getChildren().add(label);
 		Button backButton = new Button("Back"), nutritionButton = new Button("Nutrition");
 		
-		Button recipeMakerButton = new Button("New Recipe"), displayButton = new Button("Display Recipe");
+		Button recipeMakerButton = new Button("New Recipe"), displayButton = new Button("Display Recipe"), 
+				menu = new Button("Menu");
 		
 		
 		getChildren().add(titleBar);
@@ -51,6 +52,7 @@ public class UserGUI extends TilePane{
 		getChildren().add(nutritionButton);
 		getChildren().add(recipeMakerButton);
 		getChildren().add(displayButton);
+		getChildren().add(menu);
 		
 		//list of options for combo box 
 		ObservableList<String> options = FXCollections.observableArrayList(imageTitles);
@@ -94,6 +96,12 @@ public class UserGUI extends TilePane{
 //			userWindow.setTitle("Recipe Viewer");
 //			userWindow.show();
 //		});
+		menu.setOnAction(e -> {
+			Scene scene2 = new Scene(new MenuRecipeGUI(), 1000,1000);
+			userWindow.setTitle("Menu");
+			userWindow.setScene(scene2);
+			userWindow.close();
+		});
 		
 		setStyle("-fx-background-color: whitesmoke");
 		

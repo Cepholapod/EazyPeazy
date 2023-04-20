@@ -3,6 +3,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.scene.Group;
@@ -36,6 +39,7 @@ public class SingleRecipeGUI extends Pane {
 		test = recipe;
 		
 		Stage stage = new Stage();
+		
 		//Instantiating labels
 		
 		ingredients = new Label("Ingredients");
@@ -53,7 +57,7 @@ public class SingleRecipeGUI extends Pane {
 		//Creating the main borderpane
 		BorderPane pane = new BorderPane();
 		pane.setPadding(new Insets(0, 10, 0, 10));
-		
+		Scene scene = new Scene(pane, 640, 480);
 		//Setting the top to the title
 		pane.setTop(title);
 		
@@ -105,16 +109,19 @@ public class SingleRecipeGUI extends Pane {
 		Group scrollG = new Group(directions,scroll);
 		
 		scroll.setMin(0);
+		
 		scroll.setMax(1000);
-		scroll.setMaxHeight(1000);
-		scroll.setLayoutX(290);
+		
+		scroll.setMaxHeight(1000);//was 1000
+		scroll.setLayoutX(280);
+		scroll.setMin(0);
 		scroll.setPrefSize(20, 370);
 		scroll.setBlockIncrement(40);
-		scroll.valueProperty().addListener(ov ->  directions.setLayoutY((scroll.getValue() * directions.getHeight() / scroll.getMax())));
-
-		
-		
+		scroll.valueProperty().addListener(ov ->
+		directions.setLayoutY((scroll.getValue() * directions.getHeight() / scroll.getMax())));
+	
 		//Adding and formatting the new group
+		
 		gpane.add(scrollG, 0,0);
 		gpane.getColumnConstraints().add(new ColumnConstraints(300));
 		
@@ -136,7 +143,7 @@ public class SingleRecipeGUI extends Pane {
 
 		directions.setText(temp);
 
-		Scene scene = new Scene(pane, 640, 480);
+		
 
 		stage.setScene(scene);
 		stage.setTitle("Recipe Viewer");

@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollBar;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
@@ -26,7 +27,7 @@ import javafx.stage.Stage;
 /* NOTE: Hashmaps still being consistantly weird, and the scrollbar is not cooperating, ill keep looking into it
  * (Can no longer run by itself, must be ran from main)
 */
-public class SingleRecipeGUI extends Pane {
+class SingleRecipeGUI extends Pane {
 	static Recipe test = new Recipe();
 	static Label ingredients;
 	static Label directions;
@@ -85,44 +86,34 @@ public class SingleRecipeGUI extends Pane {
 		exitb.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			stage.close();
 		});
-		GridPane gpane2 = new GridPane();
-		gpane2.add(ingredients, 0, 0);
-		gpane2.add(exitb, 0,1 );
-		gpane2.getRowConstraints().add(new RowConstraints(300));
+		pane.setBottom(exitb);
+		pane.setLeft(ingredients);
 		
-		pane.setLeft(gpane2);
+		
 		
 		//Setting and formatting 
 		directions.setMaxWidth(290);
 		directions.setWrapText(true);
-		
-		//Creating the pane that will live in the left side
-		GridPane gpane = new GridPane();
+
 
 		// Setting up the scrollbar
-		ScrollBar scroll = new ScrollBar();
-		scroll.setOrientation(Orientation.VERTICAL);
-		Group scrollG = new Group(directions,scroll);
+		ScrollPane scroll = new ScrollPane(directions);
 		
-		scroll.setMin(0);
-		scroll.setMax(1000);
+
 		scroll.setMaxHeight(1000);
-		scroll.setLayoutX(290);
-		scroll.setPrefSize(20, 370);
-		scroll.setBlockIncrement(40);
-		scroll.valueProperty().addListener(ov ->  directions.setLayoutY((scroll.getValue() * directions.getHeight() / scroll.getMax())));
+		//scroll.setLayoutX(290);
+		scroll.setPrefWidth(370);
+		scroll.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
+		scroll.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.ALWAYS);
+			
+		
 
 		
-		
-		//Adding and formatting the new group
-		gpane.add(scrollG, 0,0);
-		gpane.getColumnConstraints().add(new ColumnConstraints(300));
-		
-		pane.setRight(gpane);
+		pane.setRight(scroll);
 
-		scrollG.setStyle("-fx-background-color:  #aac4e8;");
-		gpane.setStyle("-fx-background-color:  #aac4e8;");
-		pane.setStyle("-fx-background-color:  #aac4e8;");
+//		scroll.setStyle("-fx-background-color:  #aac4e8;");
+//		gpane.setStyle("-fx-background-color:  #aac4e8;");
+//		pane.setStyle("-fx-background-color:  #aac4e8;");
 		
 
 		
@@ -136,7 +127,7 @@ public class SingleRecipeGUI extends Pane {
 
 		directions.setText(temp);
 
-		Scene scene = new Scene(pane, 640, 480);
+		Scene scene = new Scene(pane, 740, 480);
 
 		stage.setScene(scene);
 		stage.setTitle("Recipe Viewer");

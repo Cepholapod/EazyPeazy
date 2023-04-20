@@ -4,6 +4,11 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+	/* UML - Methods: entreeSelector(File f) : List<Recipe>, sideSelector(File f) : List<Recipe>
+	 * 				  dessertSelector(File f): List<Recipe>, randomSelector(Meal meal) : Meal
+	 * 				  randomEntree() : Recipe, randomSide() : Recipe, randomDessert() : Recipe
+	 * 				  checkUnique() : Boolean, shutdown() : void
+	 */
 
 public class RecipeSelector {
 

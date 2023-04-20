@@ -30,6 +30,10 @@ import javafx.stage.Stage;
 /* NOTE: Hashmaps still being consistantly weird, and the scrollbar is not cooperating, ill keep looking into it
  * (Can no longer run by itself, must be ran from main)
 */
+
+/* UML - Methods: SingleRecipeGUI(Recipe)
+ *
+ */
 class SingleRecipeGUI extends Pane {
 	static Recipe test = new Recipe();
 	static Label ingredients;

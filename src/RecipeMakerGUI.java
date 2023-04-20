@@ -18,6 +18,12 @@ import javafx.stage.Stage;
 
 // camsona - Recipe Maker GUI - Lets the user know when an invalid input has been put in, wont add them if invalid.
 //								Investigating why the hashmaps being weird again
+
+/* UML - Methods: RecipeMakerGUI(User user), checkUniqueName(String title): void, nameChecker(TextField text): void
+ *				  typeChecker(TextField text): void, doubleChecker(TextField text): void, scene2() : Scene,
+ *				  getRecipe() : Recipe, clearRecipe() : void, close() : void
+ */
+
 public class RecipeMakerGUI extends Pane {
 	// Lists that hold the labels, text fields, and side labels respectively
 	static ArrayList<Label> labArr = new ArrayList<>();

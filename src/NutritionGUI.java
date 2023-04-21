@@ -3,6 +3,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -17,6 +18,8 @@ public class NutritionGUI extends Pane{
 	double weight = 180;
 	double calConstant = 15;
 	User user = new User();
+	private ComboBox<String> mealCB = new ComboBox<>();
+	private String[] mealTitle; 
 	//initiates vars will take User as parameter 
 	public NutritionGUI(User user) {
 		this.user = user;
@@ -28,7 +31,7 @@ public class NutritionGUI extends Pane{
 	 */
 	public void nutrition() {
 		final Stage nutritionStage = new Stage();
-		//Label mealLBL = new Label(user.);
+		
 		nutritionStage.setTitle("Nutrition");
 		//creates list for the pie chart. 
 		ObservableList<PieChart.Data> pieChartData = 
@@ -60,6 +63,13 @@ public class NutritionGUI extends Pane{
 		double percentProtein = user.getProtein()/(.4*(this.weight * calConstant));
 	
 		return percentProtein;
+	}
+	
+	public void mealTitles(String[] title) {
+		for(int i = 0; i<main.entrees.size(); i++) {
+			
+		}
+		
 	}
 	
 }

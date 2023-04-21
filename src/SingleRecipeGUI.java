@@ -95,13 +95,10 @@ class SingleRecipeGUI extends Pane {
 		});
 		pane.setBottom(exitb);
 		pane.setLeft(ingredients);
-		
-		
-		
+			
 		//Setting and formatting 
 		directions.setMaxWidth(290);
 		directions.setWrapText(true);
-
 
 		// Setting up the scrollbar
 		ScrollPane scroll = new ScrollPane(directions);
@@ -113,30 +110,17 @@ class SingleRecipeGUI extends Pane {
 		scroll.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
 		scroll.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.ALWAYS);
 			
-	
-		
-		
-
-
 		scroll.setMaxHeight(1000);
 		//scroll.setLayoutX(290);
 		scroll.setPrefWidth(370);
 		scroll.hbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.NEVER);
-		scroll.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.ALWAYS);
-			
-		
-
-		
+		scroll.vbarPolicyProperty().setValue(ScrollPane.ScrollBarPolicy.ALWAYS);		
 		pane.setRight(scroll);
-
-
 		pane.setRight(scroll);
 
 //		scroll.setStyle("-fx-background-color:  #aac4e8;");
 //		gpane.setStyle("-fx-background-color:  #aac4e8;");
 //		pane.setStyle("-fx-background-color:  #aac4e8;");
-		
-
 		
 		temp = "";
 		String temp2 = "";
@@ -147,7 +131,6 @@ class SingleRecipeGUI extends Pane {
 		}
 
 		directions.setText(temp);
-
 
 		Scene scene = new Scene(pane, 740, 480);
 

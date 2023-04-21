@@ -21,7 +21,7 @@ import javafx.stage.Window;
 import javafx.stage.Popup;
 
 
-public class UserGUI extends TilePane{
+public class UserGUI extends VBox {
 	
 	private Image userImage;
 	private ImageView userView;
@@ -31,7 +31,6 @@ public class UserGUI extends TilePane{
 			new ImageView("UserImage/UserOrange.PNG"),new ImageView("UserImage/UserPink.PNG")};
 	private String[] tags = {"carnivore","paleo","Mediterranean","dash","gf","lowFat","lactoseFre"};
 	private ComboBox<String> comboBox = new ComboBox<>();
-	private CheckBox checkBox;
 	User user = new User();
 	
 	public UserGUI (User user) {
@@ -53,43 +52,23 @@ public class UserGUI extends TilePane{
 		Button recipeMakerButton = new Button("New Recipe"), displayButton = new Button("Display Recipe"), 
 				menu = new Button("Menu");
 		
-		/*
-		VBox restrictionBar = new VBox();
-		restrictionBar.setSpacing(5);
-		restrictionBar.setPadding(new Insets(5));
-		for (String tag : tags) {
-			CheckBox checkBox = new CheckBox(tag);
-			restrictionBar.getChildren().add(checkBox);
-		}
 		
-		Button setRestrictions = new Button("Set Restrictions...");
+	    setAlignment(Pos.CENTER); // set alignment to center
+	    setSpacing(10); // set spacing between buttons
 
-		setRestrictions.setOnAction(e -> {
-			Popup popup = new Popup();
-			popup.getContent().add(restrictionBar);
-            popup.setAutoHide(true);
-            
-            Window window = setRestrictions.getScene().getWindow();
-            // Get the screen coordinates of the button
-            Bounds bounds = setRestrictions.localToScreen(setRestrictions.getBoundsInLocal());
-
-            // Set the X and Y coordinates of the popup to position it directly under the button
-            popup.setX(bounds.getMinX());
-            popup.setY(bounds.getMaxY());
-
-            // Show the popup
-            popup.show(window);
-
-	/*	});
-	     /*  VBox root = new VBox();
-	        root.setSpacing(10);
-	        root.setPadding(new Insets(10));
-	        root.getChildren().addAll(setRestrictions);
-	        Scene scene = new Scene(root, 300, 200);
-	        userWindow.setScene(scene);*/
-		
-		//titleBar.getChildren().add(setRestrictions);
-		//adds combo box for user icon. adds buttons.		
+	    // modify button sizes and font
+	    backButton.setPrefSize(300, 50);
+	    nutritionButton.setPrefSize(300, 50);
+	    recipeMakerButton.setPrefSize(300, 50);
+	    displayButton.setPrefSize(300, 50);
+	    menu.setPrefSize(300, 50);
+	    backButton.setStyle("-fx-font-size: 18px;");
+	    nutritionButton.setStyle("-fx-font-size: 18px;");
+	    recipeMakerButton.setStyle("-fx-font-size: 18px;");
+	    displayButton.setStyle("-fx-font-size: 18px;");
+	    menu.setStyle("-fx-font-size: 18px;");		
+				
+		titleBar.setAlignment(Pos.TOP_CENTER);		
 		getChildren().add(titleBar);
 		titleBar.getChildren().add(comboBox);
 		getChildren().add(backButton);

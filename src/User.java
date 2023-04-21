@@ -4,7 +4,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/*
+ * void userMeals(meal : Meal)
+ */
 //This is still pretty basic, I plan to implement a ComboBox so that users can choose
 // a specific dietary restriction, and have the user be able to enter their username, weight, etc.
 //Currently, 'users.txt' is being used to save just the username of a user, if they add a new profile.
@@ -103,6 +105,10 @@ public class User {
     public static void addUser(String username) {
     	users.add(new User(username, 0, new ArrayList<String>()));
     	User.saveUsersToFile(users, "users.txt");
+    }
+    
+    public void addMeal(Meal meal) {
+    	userMeals.add(meal);
     }
     
     public static void saveUsersToFile(ArrayList<User> users, String filename) {

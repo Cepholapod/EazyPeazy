@@ -88,16 +88,7 @@ public class NutritionGUI extends Pane{
 	
 		return percentProtein;
 	}
-	
-	public static void addEntree(Recipe entree) {
-		entrees.add(entree);
-	}
-	public static void addSide(Recipe side) {
-		entrees.add(side);
-	}
-	public static void addDessert(Recipe dessert) {
-		entrees.add(dessert);
-	}
+
 	public String[] title(Recipe recipe) {
 		String[]title = new String[entrees.size()];
 		for(int i = 0; i<entrees.size(); i++) {

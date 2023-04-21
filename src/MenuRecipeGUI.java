@@ -47,6 +47,8 @@ public class MenuRecipeGUI extends Pane {
 		Scene scene = new Scene(border, 1000, 500);
 		Stage MenuRecipesStage = new Stage();
 
+		setNumMeals(numMeals);
+
 		//mealInput.addEventHandler(e ->);
 		//setNumMeals(5);
 		//mealInputTF.setOnKeyTyped(e -> newNum(Integer.parseInt(mealInputTF.getText())));
@@ -141,7 +143,7 @@ public class MenuRecipeGUI extends Pane {
 		pane.addRow(0, mealsLBL, entreesLBL, sidesLBL, dessertsLBL, timesLBL);
 
 		//add all butttons
-		for (int i = 0; i <= quantity; i++) {
+		for (int i = 0; i < quantity; i++) {
 			
 			numLBL.add(new Label("Meal #" + String.valueOf(i + 1)));
 			// meal

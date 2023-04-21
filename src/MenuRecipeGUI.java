@@ -143,10 +143,10 @@ public class MenuRecipeGUI extends Pane {
 			
 			numLBL.add(new Label("Meal #" + String.valueOf(i + 1)));
 			// meal
-			Recipe entree = entrees.remove((int) Math.random() * entrees.size());
-			Recipe side = sides.remove((int) Math.random() * sides.size());
-			Recipe dessert = desserts.remove((int) Math.random() * desserts.size());
-
+			Recipe entree = entrees.remove((int) (Math.random() * entrees.size()));
+			Recipe side = sides.remove((int) (Math.random() * sides.size()));
+			Recipe dessert = desserts.remove((int) (Math.random() * desserts.size()));
+			
 			Meal meal = new Meal(entree, side, dessert);
 			meals.add(meal);
 

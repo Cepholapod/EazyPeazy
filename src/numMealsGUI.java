@@ -4,9 +4,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class numMealsGUI {
+public class numMealsGUI extends Pane{
 	private BorderPane border = new BorderPane();
 	private Label mealsLBL = new Label("Enter Number of Meals");
 	private TextField mealInputTF = new TextField();

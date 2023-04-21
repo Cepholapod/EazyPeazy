@@ -88,7 +88,7 @@ public class UserGUI extends TilePane{
 	        userWindow.setScene(scene);*/
 		
 		titleBar.getChildren().add(setRestrictions);
-				
+		//adds combo box for user icon. adds buttons.		
 		getChildren().add(titleBar);
 		titleBar.getChildren().add(comboBox);
 		getChildren().add(backButton);
@@ -124,7 +124,7 @@ public class UserGUI extends TilePane{
 			//should take us back to startGUI
 		});
 		nutritionButton.setOnAction(e -> {
-			Scene scene2  = new Scene(new NutritionGUI(user), 640,640);
+			Scene scene2  = new Scene(new NutritionGUI(user), 500,500);
 			userWindow.setScene(scene2);
 			userWindow.setTitle("Nutrition");
 			userWindow.show();
@@ -144,10 +144,11 @@ public class UserGUI extends TilePane{
 //			userWindow.show();
 //		});
 		menu.setOnAction(e -> {
-			Scene scene2 = new Scene(new MenuRecipeGUI(user, 2), 1000,1000);
-			//Scene scene2 = new Scene(new numMealsGUI(user), 100, 100);
+			Scene scene1 = new Scene(new MenuRecipeGUI(user, 7), 1000,1000);
+			Scene scene2 = new Scene(new numMealsGUI(user), 100, 100);
 			userWindow.setTitle("Menu");
 			userWindow.setScene(scene2);
+			userWindow.setScene(scene1);
 			userWindow.close();
 		});
 		

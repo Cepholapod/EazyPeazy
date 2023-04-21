@@ -69,6 +69,7 @@ public class MenuRecipeGUI extends Pane {
 		dessertsLBL.setFont(LBLfont);
 		menuLBL.setFont(LBLfont);
 		timesLBL.setFont(LBLfont);
+		mealsLBL.setFont(LBLfont);
 
 		// set labels to expand with cells
 		entreesLBL.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
@@ -88,11 +89,11 @@ public class MenuRecipeGUI extends Pane {
 
 		// Set row and column constraints to expand with window
 		ColumnConstraints col1 = new ColumnConstraints();
-		col1.setPercentWidth(6);
+		col1.setPercentWidth(10);
 		pane.getColumnConstraints().add(col1);
 		for (int i = 1; i < 5; i++) {
 			ColumnConstraints col = new ColumnConstraints();
-			col.setPercentWidth(23.5);
+			col.setPercentWidth((100-10)/4);
 			pane.getColumnConstraints().add(col);
 		}
 		RowConstraints row1 = new RowConstraints();
@@ -134,11 +135,6 @@ public class MenuRecipeGUI extends Pane {
 			System.out.println("Desserts only has " + main.desserts.size() + " recipes");
 
 		// initialize lists
-		/*
-		 * List<Recipe> entrees = main.entrees;
-		List<Recipe> sides = main.sides;
-		List<Recipe> desserts = main.desserts;
-		 */ 
 		List<Recipe> entrees = new ArrayList<Recipe>();
 		List<Recipe> sides = new ArrayList<Recipe>();
 		List<Recipe> desserts = new ArrayList<Recipe>();
@@ -158,15 +154,9 @@ public class MenuRecipeGUI extends Pane {
 
 		//add all butttons
 		for (int i = 0; i < quantity; i++) {
-			
 			numLBL.add(new Label("Meal #" + String.valueOf(i + 1)));
-			// meal
 			
-			/*
-			 * Recipe entree = entrees.get((int) (Math.random() * entrees.size()));
-			Recipe side = sides.get((int) (Math.random() * sides.size()));
-			Recipe dessert = desserts.get((int) (Math.random() * desserts.size()));
-			 */
+			// meal
 			Recipe entree = entrees.remove((int) (Math.random() * entrees.size()));
 			Recipe side = sides.remove((int) (Math.random() * sides.size()));
 			Recipe dessert = desserts.remove((int) (Math.random() * desserts.size()));
@@ -180,12 +170,9 @@ public class MenuRecipeGUI extends Pane {
 			dessertsBTN.add(new Button(dessert.getTitle()));
 
 			// set buttons to expand with rows/columns
-			entreesBTN.get(i).setMaxHeight(Double.MAX_VALUE);
-			entreesBTN.get(i).setMaxWidth(Double.MAX_VALUE);
-			sidesBTN.get(i).setMaxHeight(Double.MAX_VALUE);
-			sidesBTN.get(i).setMaxWidth(Double.MAX_VALUE);
-			dessertsBTN.get(i).setMaxHeight(Double.MAX_VALUE);
-			dessertsBTN.get(i).setMaxWidth(Double.MAX_VALUE);
+			entreesBTN.get(i).setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+			sidesBTN.get(i).setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+			dessertsBTN.get(i).setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 
 			// set buttons to wrap text
 			entreesBTN.get(i).setWrapText(true);

@@ -121,7 +121,7 @@ public class MenuRecipeGUI extends Pane {
 	}
 
 	public void setNumMeals(int quantity) {
-		pane.getChildren().clear();
+		//pane.getChildren().clear();
 		// test size
 		if(quantity < 0)
 			throw new IllegalArgumentException("Number of meals connot be 0 ");
@@ -134,9 +134,24 @@ public class MenuRecipeGUI extends Pane {
 			System.out.println("Desserts only has " + main.desserts.size() + " recipes");
 
 		// initialize lists
-		List<Recipe> entrees = main.entrees;
+		/*
+		 * List<Recipe> entrees = main.entrees;
 		List<Recipe> sides = main.sides;
 		List<Recipe> desserts = main.desserts;
+		 */ 
+		List<Recipe> entrees = new ArrayList<Recipe>();
+		List<Recipe> sides = new ArrayList<Recipe>();
+		List<Recipe> desserts = new ArrayList<Recipe>();
+		entrees.addAll(main.entrees);
+		sides.addAll(main.sides);
+		desserts.addAll(main.desserts);
+		
+		if(entreesBTN != null)
+			entreesBTN.clear();
+		if(sidesBTN != null)
+			sidesBTN.clear();
+		if(dessertsBTN != null)
+			dessertsBTN.clear();
 		
 		// addings elements to the pane
 		pane.addRow(0, mealsLBL, entreesLBL, sidesLBL, dessertsLBL, timesLBL);
@@ -146,9 +161,15 @@ public class MenuRecipeGUI extends Pane {
 			
 			numLBL.add(new Label("Meal #" + String.valueOf(i + 1)));
 			// meal
-			Recipe entree = entrees.get((int) (Math.random() * entrees.size()));
+			
+			/*
+			 * Recipe entree = entrees.get((int) (Math.random() * entrees.size()));
 			Recipe side = sides.get((int) (Math.random() * sides.size()));
 			Recipe dessert = desserts.get((int) (Math.random() * desserts.size()));
+			 */
+			Recipe entree = entrees.remove((int) (Math.random() * entrees.size()));
+			Recipe side = sides.remove((int) (Math.random() * sides.size()));
+			Recipe dessert = desserts.remove((int) (Math.random() * desserts.size()));
 			
 			Meal meal = new Meal(entree, side, dessert);
 			meals.add(meal);

@@ -33,7 +33,7 @@ public class NutritionGUI extends Pane{
 		//creates list for the pie chart. 
 		ObservableList<PieChart.Data> pieChartData = 
 				FXCollections.observableArrayList(
-						new PieChart.Data("Protien" + String.format(": %.2f", proteinDailyValue()*100)+ "%", proteinDailyValue()),
+						new PieChart.Data("Protein" + String.format(": %.2f", proteinDailyValue()*100)+ "%", proteinDailyValue()),
 						new PieChart.Data("Carbs" + String.format(": %.2f", carbDailyValue()*100)+ "%", carbDailyValue()),
 						new PieChart.Data("Fat" + String.format(": %.2f", fatDailyValue()*100) +"%", fatDailyValue()));
 		final PieChart chart = new PieChart(pieChartData);

@@ -53,6 +53,7 @@ public class UserGUI extends TilePane{
 		Button recipeMakerButton = new Button("New Recipe"), displayButton = new Button("Display Recipe"), 
 				menu = new Button("Menu");
 		
+		/*
 		VBox restrictionBar = new VBox();
 		restrictionBar.setSpacing(5);
 		restrictionBar.setPadding(new Insets(5));
@@ -79,7 +80,7 @@ public class UserGUI extends TilePane{
             // Show the popup
             popup.show(window);
 
-		});
+	/*	});
 	     /*  VBox root = new VBox();
 	        root.setSpacing(10);
 	        root.setPadding(new Insets(10));
@@ -87,7 +88,7 @@ public class UserGUI extends TilePane{
 	        Scene scene = new Scene(root, 300, 200);
 	        userWindow.setScene(scene);*/
 		
-		titleBar.getChildren().add(setRestrictions);
+		//titleBar.getChildren().add(setRestrictions);
 		//adds combo box for user icon. adds buttons.		
 		getChildren().add(titleBar);
 		titleBar.getChildren().add(comboBox);
@@ -98,7 +99,7 @@ public class UserGUI extends TilePane{
 
 		getChildren().add(menu);
 
-		getChildren().add(setRestrictions);
+	//	getChildren().add(setRestrictions);
 
 		
 		//list of options for combo box 

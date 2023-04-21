@@ -138,7 +138,7 @@ public class MenuRecipeGUI extends Pane {
 		 * List<Recipe> entrees = main.entrees;
 		List<Recipe> sides = main.sides;
 		List<Recipe> desserts = main.desserts;
-		 */
+		 */ 
 		List<Recipe> entrees = new ArrayList<Recipe>();
 		List<Recipe> sides = new ArrayList<Recipe>();
 		List<Recipe> desserts = new ArrayList<Recipe>();

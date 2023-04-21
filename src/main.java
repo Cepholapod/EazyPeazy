@@ -44,7 +44,7 @@ public class main extends Application {
 		Button btNewUser = new Button("New User...");
 		btNewUser.setFont(Font.font("Georgia", FontWeight.BOLD, 18));
 
-		btNewUser.setPrefSize(20, 20);
+		btNewUser.setPrefSize(135, 40);
 		btNewUser.setContentDisplay(ContentDisplay.BOTTOM);
 
 		Label label = new Label("Who's eating?");

@@ -23,7 +23,10 @@ public class NutritionGUI extends Pane{
 	User user = new User();
 	private ComboBox<String> mealCB = new ComboBox<>();
 	private String[] mealTitle;
-
+	static List<Recipe> entrees = new ArrayList<Recipe>();
+	static List<Recipe> sides = new ArrayList<Recipe>();
+	static List<Recipe> desserts = new ArrayList<Recipe>();
+	
 	//initiates vars will take User as parameter 
 	public NutritionGUI(User user) {
 		this.user = user;
@@ -47,6 +50,8 @@ public class NutritionGUI extends Pane{
 		chart.setTitle("Macros");
 		getChildren().add(chart);
 	    setStyle("-fx-background-color: whitesmoke;");
+	    
+	  
 	}
 	
 	public double fatDailyValue () {
@@ -69,6 +74,8 @@ public class NutritionGUI extends Pane{
 		return percentProtein;
 	}
 	
-	
-	
+	public static void addEntree(Recipe entree) {
+		entrees.add(entree);
+	}
+
 }

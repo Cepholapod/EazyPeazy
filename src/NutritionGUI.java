@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -19,7 +22,8 @@ public class NutritionGUI extends Pane{
 	double calConstant = 15;
 	User user = new User();
 	private ComboBox<String> mealCB = new ComboBox<>();
-	private String[] mealTitle; 
+	private String[] mealTitle;
+
 	//initiates vars will take User as parameter 
 	public NutritionGUI(User user) {
 		this.user = user;
@@ -65,11 +69,6 @@ public class NutritionGUI extends Pane{
 		return percentProtein;
 	}
 	
-	public void mealTitles(String[] title) {
-		for(int i = 0; i<main.entrees.size(); i++) {
-			
-		}
-		
-	}
+	
 	
 }

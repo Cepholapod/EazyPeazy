@@ -158,11 +158,8 @@ public class MenuRecipeGUI extends Pane {
 			
 			// meal
 			Recipe entree = entrees.remove((int) (Math.random() * entrees.size()));
-			NutritionGUI.addEntree(entree);
 			Recipe side = sides.remove((int) (Math.random() * sides.size()));
-			NutritionGUI.addSide(side);
 			Recipe dessert = desserts.remove((int) (Math.random() * desserts.size()));
-			NutritionGUI.addDessert(dessert);
 			Meal meal = new Meal(entree, side, dessert);
 			meals.add(meal);
 

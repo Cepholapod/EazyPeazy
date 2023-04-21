@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 import javafx.scene.layout.*;
 
 public class MenuRecipeGUI extends Pane {
-	private TextField mealInputTF = new TextField();
+	//private TextField mealInputTF = new TextField();
 	private List<Meal> meals = new ArrayList<Meal>();
 	private List<Label> numLBL = new ArrayList<Label>();
 	private List<Label> timeLBL = new ArrayList<Label>();
@@ -29,7 +29,7 @@ public class MenuRecipeGUI extends Pane {
 	private Label entreesLBL = new Label("Entrees");
 	private Label sidesLBL = new Label("Sides");
 	private Label dessertsLBL = new Label("Desserts");
-	//private Label mealsLBL = new Label("Meals");
+	private Label mealsLBL = new Label("Meals");
 	private Label menuLBL = new Label("Menu for the Week");
 	private Label timesLBL = new Label("Time");
 	private GridPane pane = new GridPane();
@@ -37,7 +37,8 @@ public class MenuRecipeGUI extends Pane {
 	private int numMeals;
 	//private int number;
 
-	public MenuRecipeGUI(User user) {
+	public MenuRecipeGUI(User user, int numOfMeals) {
+		numMeals = numOfMeals;
 		pane.setHgap(10);
 		pane.setVgap(10);
 		pane.setAlignment(Pos.CENTER);
@@ -47,8 +48,8 @@ public class MenuRecipeGUI extends Pane {
 		Stage MenuRecipesStage = new Stage();
 
 		//mealInput.addEventHandler(e ->);
-		setNumMeals(5);
-		mealInputTF.setOnKeyTyped(e -> newNum(Integer.parseInt(mealInputTF.getText())));
+		//setNumMeals(5);
+		//mealInputTF.setOnKeyTyped(e -> newNum(Integer.parseInt(mealInputTF.getText())));
 		
 		//add meals
 		if(user.getMeals() != null)
@@ -71,7 +72,7 @@ public class MenuRecipeGUI extends Pane {
 		entreesLBL.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		sidesLBL.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		dessertsLBL.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-		mealInputTF.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		mealsLBL.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		menuLBL.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		timesLBL.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		
@@ -79,7 +80,7 @@ public class MenuRecipeGUI extends Pane {
 		entreesLBL.setAlignment(Pos.CENTER);
 		sidesLBL.setAlignment(Pos.CENTER);
 		dessertsLBL.setAlignment(Pos.CENTER);
-		mealInputTF.setAlignment(Pos.CENTER);
+		mealsLBL.setAlignment(Pos.CENTER);
 		menuLBL.setAlignment(Pos.CENTER);
 		timesLBL.setAlignment(Pos.CENTER);
 
@@ -119,6 +120,7 @@ public class MenuRecipeGUI extends Pane {
 
 	public void setNumMeals(int quantity) {
 		pane.getChildren().clear();
+		
 		// test size
 		if(quantity < 0)
 			throw new IllegalArgumentException("Number of meals connot be 0 ");
@@ -136,7 +138,7 @@ public class MenuRecipeGUI extends Pane {
 		List<Recipe> desserts = main.desserts;
 		
 		// addings elements to the pane
-		pane.addRow(0, mealInputTF, entreesLBL, sidesLBL, dessertsLBL, timesLBL);
+		pane.addRow(0, mealsLBL, entreesLBL, sidesLBL, dessertsLBL, timesLBL);
 
 		//add all butttons
 		for (int i = 0; i <= quantity; i++) {
@@ -192,9 +194,11 @@ public class MenuRecipeGUI extends Pane {
 		}
 		
 	}
+	/*
 	public void newNum(int num) {
 		numMeals = numMeals + num; // adds each number to a group number
 		//mealInputTF.setText(mealInputTF.getText() + String.valueOf(numMeals)); // shows the number entered on the top label
 		setNumMeals(numMeals);
 	}
+	*/
 }

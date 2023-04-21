@@ -96,6 +96,7 @@ public class main extends Application {
 		TEST.setOnAction(e -> {
 			//MenuRecipeGUI gui = new MenuRecipeGUI(); 	
 			//AllRecipesGUI gui = new AllRecipesGUI();
+			//numMealsGUI GUI = new numMealsGUI(User.getUserByUsername("Alice"));
 		});
 		
 		tilePane.getChildren().add(TEST);

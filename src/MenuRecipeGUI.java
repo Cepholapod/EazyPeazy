@@ -49,11 +49,6 @@ public class MenuRecipeGUI extends Pane {
 
 		setNumMeals(numMeals);
 
-		// mealInput.addEventHandler(e ->);
-		// setNumMeals(5);
-		// mealInputTF.setOnKeyTyped(e ->
-		// newNum(Integer.parseInt(mealInputTF.getText())));
-
 		// add meals
 		if (user.getMeals() != null)
 			user.clearMeals();

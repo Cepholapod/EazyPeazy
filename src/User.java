@@ -54,6 +54,9 @@ public class User {
 	public void userMeals() {
 		RecipeSelector.randomSelector(meal);
 	}
+	public void setMeal(Recipe entree, Recipe side, Recipe dessert) {
+		this.meal = new Meal(entree, side, dessert);
+	}
 	public int getWeight() {
 		return weight;
 	}

@@ -36,7 +36,7 @@ public class main extends Application {
 	public void start(Stage primaryStage) {
 		
 		BorderPane borderPane = new BorderPane();
-		Scene scene = new Scene(borderPane, 800, 600);
+		Scene scene = new Scene(borderPane, 820, 600);
 	
 		Image userImage = new Image(getClass().getResourceAsStream("UserImage/UserBlue.PNG"));
 		this.userImage = userImage;

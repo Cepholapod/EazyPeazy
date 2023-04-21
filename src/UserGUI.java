@@ -144,11 +144,11 @@ public class UserGUI extends TilePane{
 //			userWindow.show();
 //		});
 		menu.setOnAction(e -> {
-			Scene scene1 = new Scene(new MenuRecipeGUI(user, 7), 1000,1000);
+			//Scene scene1 = new Scene(new MenuRecipeGUI(user, 7), 1000,1000);
 			Scene scene2 = new Scene(new numMealsGUI(user), 100, 100);
 			userWindow.setTitle("Menu");
 			userWindow.setScene(scene2);
-			userWindow.setScene(scene1);
+			//userWindow.setScene(scene1);
 			userWindow.close();
 		});
 		

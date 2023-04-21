@@ -16,6 +16,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.Popup;
@@ -37,8 +39,10 @@ public class UserGUI extends VBox {
 		this.user = user;
 		final Stage userWindow = new Stage();
 		main main = new main();
-		VBox titleBar = new VBox();//box for user image
-		titleBar.setAlignment(Pos.CENTER);
+		VBox buttons = new VBox();//box for buttons
+		VBox userPic = new VBox();//box for user image
+		buttons.setAlignment(Pos.CENTER);
+		userPic.setAlignment(Pos.CENTER);
 		
 		title = userWindow.getTitle();
 		Label label = new Label(title);//label for user image.
@@ -46,38 +50,39 @@ public class UserGUI extends VBox {
 		userImage = userImages[0].getImage();
 		label.setGraphic(new ImageView(userImage));
 		label.setAlignment(Pos.TOP_LEFT);
-		titleBar.getChildren().add(label);
-		Button backButton = new Button("Back"), nutritionButton = new Button("Nutrition");
+		userPic.getChildren().add(label);
+		Button exitButton = new Button("Exit"), nutritionButton = new Button("Nutrition");
 		
-		Button recipeMakerButton = new Button("New Recipe"), displayButton = new Button("Display All Recipes"), 
+		Button recipeMakerButton = new Button("New Recipe"), displayButton = new Button("Display Recipe"), 
 				menu = new Button("Menu");
+
 		
-		
-	    setAlignment(Pos.CENTER); // set alignment to center
+	    setAlignment(Pos.TOP_CENTER); // set alignment to center
 	    setSpacing(10); // set spacing between buttons
 
 	    // modify button sizes and font
-	    backButton.setPrefSize(300, 50);
+	    exitButton.setPrefSize(300, 50);
 	    nutritionButton.setPrefSize(300, 50);
 	    recipeMakerButton.setPrefSize(300, 50);
 	    displayButton.setPrefSize(300, 50);
 	    menu.setPrefSize(300, 50);
-	    backButton.setStyle("-fx-font-size: 18px;");
-	    nutritionButton.setStyle("-fx-font-size: 18px;");
-	    recipeMakerButton.setStyle("-fx-font-size: 18px;");
-	    displayButton.setStyle("-fx-font-size: 18px;");
-	    menu.setStyle("-fx-font-size: 18px;");		
+		exitButton.setFont(Font.font("Georgia", FontWeight.BOLD, 18));
+		nutritionButton.setFont(Font.font("Georgia", FontWeight.BOLD, 18));
+		recipeMakerButton.setFont(Font.font("Georgia", FontWeight.BOLD, 18));
+		displayButton.setFont(Font.font("Georgia", FontWeight.BOLD, 18));
+		menu.setFont(Font.font("Georgia", FontWeight.BOLD, 24));
 				
-		titleBar.setAlignment(Pos.TOP_CENTER);		
-		getChildren().add(titleBar);
-		titleBar.getChildren().add(comboBox);
-		getChildren().add(backButton);
+		userPic.setAlignment(Pos.TOP_LEFT);
+		getChildren().add(userPic);
+		userPic.getChildren().add(comboBox);
+		
+		buttons.setAlignment(Pos.TOP_CENTER);
+		getChildren().add(menu);
 		getChildren().add(nutritionButton);
 		getChildren().add(recipeMakerButton);
 		getChildren().add(displayButton);
-
-		getChildren().add(menu);
-
+		getChildren().add(exitButton);
+		
 	//	getChildren().add(setRestrictions);
 
 		
@@ -100,8 +105,9 @@ public class UserGUI extends VBox {
 		});
 		
 		
-		backButton.setOnAction(e -> {
-			//should take us back to startGUI
+		exitButton.setOnAction(e -> {
+			System.exit(0);
+			
 		});
 		nutritionButton.setOnAction(e -> {
 			Scene scene2  = new Scene(new NutritionGUI(user), 500,500);
@@ -117,12 +123,12 @@ public class UserGUI extends VBox {
 			userWindow.close();
 		});
 		
-		displayButton.setOnAction(e -> {
-			Scene scene4 = new Scene(new AllRecipesGUI(), 640, 640);
-			userWindow.setScene(scene4);
-			userWindow.setTitle("Recipes Viewer");
-			userWindow.close();
-		});
+//		displayButton.setOnAction(e -> {
+//			Scene scene4 = new Scene(new SingleRecipeGUI(), 640, 640);
+//			userWindow.setScene(scene4);
+//			userWindow.setTitle("Recipe Viewer");
+//			userWindow.show();
+//		});
 		menu.setOnAction(e -> {
 			//Scene scene1 = new Scene(new MenuRecipeGUI(user, 7), 1000,1000);
 			Scene scene2 = new Scene(new numMealsGUI(user), 100, 100);

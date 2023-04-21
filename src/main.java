@@ -90,16 +90,7 @@ public class main extends Application {
 			});
 
 		}
-		//A test button to test out new GUI windows while we figure out how to change scenes
-		//please just comment out old tests.
-		Button TEST = new Button("Test");
-		TEST.setOnAction(e -> {
-			//MenuRecipeGUI gui = new MenuRecipeGUI(); 	
-			//AllRecipesGUI gui = new AllRecipesGUI();
-			numMealsGUI GUI = new numMealsGUI(User.getUserByUsername("Alice"));
-		});
-		
-		tilePane.getChildren().add(TEST);
+	
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Eazy Peazy");
 		primaryStage.show();

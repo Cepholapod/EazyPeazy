@@ -3,9 +3,11 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 /*
- * void userMeals(meal : Meal)
+ * void addMeal(meal : Meal)
+ * void addMeals(meals : List<Meal>)
  */
 //This is still pretty basic, I plan to implement a ComboBox so that users can choose
 // a specific dietary restriction, and have the user be able to enter their username, weight, etc.
@@ -109,6 +111,9 @@ public class User {
     
     public void addMeal(Meal meal) {
     	userMeals.add(meal);
+    }
+    public void addMeals(List<Meal> meals) {
+    	userMeals.addAll(meals);
     }
     
     public static void saveUsersToFile(ArrayList<User> users, String filename) {

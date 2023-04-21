@@ -8,6 +8,7 @@ import java.util.Scanner;
 /*
  * void addMeal(meal : Meal)
  * void addMeals(meals : List<Meal>)
+ * List<Meal> getMeals()
  */
 //This is still pretty basic, I plan to implement a ComboBox so that users can choose
 // a specific dietary restriction, and have the user be able to enter their username, weight, etc.
@@ -20,7 +21,7 @@ public class User {
 	private int weight;
 	private String username;
 	private ArrayList<String> dietaryRestrictions;
-	private ArrayList<Meal> userMeals;
+	private ArrayList<Meal> userMeals = new ArrayList<Meal>();
 	Meal meal = new Meal();
 
 	public User() {
@@ -114,6 +115,12 @@ public class User {
     }
     public void addMeals(List<Meal> meals) {
     	userMeals.addAll(meals);
+    }
+    public void clearMeals() {
+    	userMeals.clear();
+    }
+    public List<Meal> getMeals(){
+    	return userMeals;
     }
     
     public static void saveUsersToFile(ArrayList<User> users, String filename) {

@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 public class NutritionGUI extends Pane{
 	//once the user is complete remove numbers
-	private Stage nutritionStage;
+	
 	double carbs = 100;
 	double protein = 57;
 	double fat = 170;
@@ -20,22 +20,15 @@ public class NutritionGUI extends Pane{
 	//initiates vars will take User as parameter 
 	public NutritionGUI(User user) {
 		this.user = user;
-		//carbs = user.getCarbs();
-		//fat = user.getFat();
-		//protein = user.getProtein();
-		// weight = user.getweight();
 		nutrition();
 	}
 	/**
 	 * sets up the nutrition window and creates a pie chart based off of the 
 	 * macros the user intakes from a meal.
-	 * @ZACH
-	 * other work will have to be done outside of this class for it to work properly @USER
-	 *  
 	 */
 	public void nutrition() {
 		final Stage nutritionStage = new Stage();
-		this.nutritionStage = nutritionStage;
+		//Label mealLBL = new Label(user.);
 		nutritionStage.setTitle("Nutrition");
 		//creates list for the pie chart. 
 		ObservableList<PieChart.Data> pieChartData = 

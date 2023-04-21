@@ -53,7 +53,7 @@ public class UserGUI extends VBox {
 		userPic.getChildren().add(label);
 		Button exitButton = new Button("Exit"), nutritionButton = new Button("Nutrition");
 		
-		Button recipeMakerButton = new Button("New Recipe"), displayButton = new Button("Display Recipe"), 
+		Button recipeMakerButton = new Button("New Recipe"), displayButton = new Button("Display All Recipes"), 
 				menu = new Button("Menu");
 
 		
@@ -123,12 +123,12 @@ public class UserGUI extends VBox {
 			userWindow.close();
 		});
 		
-//		displayButton.setOnAction(e -> {
-//			Scene scene4 = new Scene(new SingleRecipeGUI(), 640, 640);
-//			userWindow.setScene(scene4);
-//			userWindow.setTitle("Recipe Viewer");
-//			userWindow.show();
-//		});
+		displayButton.setOnAction(e -> {
+			Scene scene4 = new Scene(new AllRecipesGUI(), 640, 640);
+			userWindow.setScene(scene4);
+			userWindow.setTitle("All Recipes Viewer");
+			userWindow.close();
+		});
 		menu.setOnAction(e -> {
 			//Scene scene1 = new Scene(new MenuRecipeGUI(user, 7), 1000,1000);
 			Scene scene2 = new Scene(new numMealsGUI(user), 100, 100);

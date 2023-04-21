@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 import javafx.scene.layout.*;
 
 public class MenuRecipeGUI extends Pane {
-	//private TextField mealInputTF = new TextField();
+	// private TextField mealInputTF = new TextField();
 	private List<Meal> meals = new ArrayList<Meal>();
 	private List<Label> numLBL = new ArrayList<Label>();
 	private List<Label> timeLBL = new ArrayList<Label>();
@@ -35,7 +35,7 @@ public class MenuRecipeGUI extends Pane {
 	private GridPane pane = new GridPane();
 	private BorderPane border = new BorderPane();
 	private int numMeals;
-	//private int number;
+	// private int number;
 
 	public MenuRecipeGUI(User user, int numOfMeals) {
 		numMeals = numOfMeals;
@@ -49,12 +49,8 @@ public class MenuRecipeGUI extends Pane {
 
 		setNumMeals(numMeals);
 
-		//mealInput.addEventHandler(e ->);
-		//setNumMeals(5);
-		//mealInputTF.setOnKeyTyped(e -> newNum(Integer.parseInt(mealInputTF.getText())));
-		
-		//add meals
-		if(user.getMeals() != null)
+		// add meals
+		if (user.getMeals() != null)
 			user.clearMeals();
 		user.addMeals(meals);
 
@@ -78,7 +74,7 @@ public class MenuRecipeGUI extends Pane {
 		mealsLBL.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		menuLBL.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		timesLBL.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-		
+
 		// center labels
 		entreesLBL.setAlignment(Pos.CENTER);
 		sidesLBL.setAlignment(Pos.CENTER);
@@ -93,7 +89,7 @@ public class MenuRecipeGUI extends Pane {
 		pane.getColumnConstraints().add(col1);
 		for (int i = 1; i < 5; i++) {
 			ColumnConstraints col = new ColumnConstraints();
-			col.setPercentWidth((100-10)/4);
+			col.setPercentWidth((100 - 10) / 4);
 			pane.getColumnConstraints().add(col);
 		}
 		RowConstraints row1 = new RowConstraints();
@@ -101,30 +97,29 @@ public class MenuRecipeGUI extends Pane {
 		pane.getRowConstraints().add(row1);
 		for (int i = 0; i < numMeals + 1; i++) {
 			RowConstraints row = new RowConstraints();
-			//row.setPercentHeight(100 / (numMeals + 1));
+			// row.setPercentHeight(100 / (numMeals + 1));
 			pane.getRowConstraints().add(row);
 		}
-		
 
 		// exit button
 		Button exitBTN = new Button("Exit");
 		exitBTN.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
 			MenuRecipesStage.close();
 		});
-		
+
 		// setting up border pane
 		border.setBottom(exitBTN);
 		border.setTop(menuLBL);
-		
+
 		MenuRecipesStage.setTitle("All Recipes Available");
 		MenuRecipesStage.setScene(scene);
 		MenuRecipesStage.show();
 	}
 
 	public void setNumMeals(int quantity) {
-		//pane.getChildren().clear();
+		// pane.getChildren().clear();
 		// test size
-		if(quantity < 0)
+		if (quantity < 0)
 			throw new IllegalArgumentException("Number of meals connot be 0 ");
 		if (main.entrees.isEmpty() || main.entrees.size() < numMeals)
 			System.out.println("Entrees only has " + main.entrees.size() + " recipes");
@@ -141,21 +136,21 @@ public class MenuRecipeGUI extends Pane {
 		entrees.addAll(main.entrees);
 		sides.addAll(main.sides);
 		desserts.addAll(main.desserts);
-		
-		if(entreesBTN != null)
+
+		if (entreesBTN != null)
 			entreesBTN.clear();
-		if(sidesBTN != null)
+		if (sidesBTN != null)
 			sidesBTN.clear();
-		if(dessertsBTN != null)
+		if (dessertsBTN != null)
 			dessertsBTN.clear();
-		
+
 		// addings elements to the pane
 		pane.addRow(0, mealsLBL, entreesLBL, sidesLBL, dessertsLBL, timesLBL);
 
-		//add all butttons
+		// add all butttons
 		for (int i = 0; i < quantity; i++) {
 			numLBL.add(new Label("Meal #" + String.valueOf(i + 1)));
-			
+
 			// meal
 			Recipe entree = entrees.remove((int) (Math.random() * entrees.size()));
 			//NutritionGUI.addEntree(entree);
@@ -203,13 +198,6 @@ public class MenuRecipeGUI extends Pane {
 
 			pane.addRow(i + 1, numLBL.get(i), entreesBTN.get(i), sidesBTN.get(i), dessertsBTN.get(i), timeLBL.get(i));
 		}
-		
+
 	}
-	/*
-	public void newNum(int num) {
-		numMeals = numMeals + num; // adds each number to a group number
-		//mealInputTF.setText(mealInputTF.getText() + String.valueOf(numMeals)); // shows the number entered on the top label
-		setNumMeals(numMeals);
-	}
-	*/
 }

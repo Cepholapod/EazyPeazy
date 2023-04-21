@@ -122,7 +122,6 @@ public class MenuRecipeGUI extends Pane {
 
 	public void setNumMeals(int quantity) {
 		pane.getChildren().clear();
-		
 		// test size
 		if(quantity < 0)
 			throw new IllegalArgumentException("Number of meals connot be 0 ");
@@ -147,9 +146,9 @@ public class MenuRecipeGUI extends Pane {
 			
 			numLBL.add(new Label("Meal #" + String.valueOf(i + 1)));
 			// meal
-			Recipe entree = entrees.remove((int) (Math.random() * entrees.size()));
-			Recipe side = sides.remove((int) (Math.random() * sides.size()));
-			Recipe dessert = desserts.remove((int) (Math.random() * desserts.size()));
+			Recipe entree = entrees.get((int) (Math.random() * entrees.size()));
+			Recipe side = sides.get((int) (Math.random() * sides.size()));
+			Recipe dessert = desserts.get((int) (Math.random() * desserts.size()));
 			
 			Meal meal = new Meal(entree, side, dessert);
 			meals.add(meal);

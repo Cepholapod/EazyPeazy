@@ -3,11 +3,13 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -48,9 +50,22 @@ public class NutritionGUI extends Pane{
 						new PieChart.Data("Fat" + String.format(": %.2f", fatDailyValue()*100) +"%", fatDailyValue()));
 		final PieChart chart = new PieChart(pieChartData);
 		chart.setTitle("Macros");
+		getChildren().add(mealCB);
 		getChildren().add(chart);
 	    setStyle("-fx-background-color: whitesmoke;");
 	    
+	  //list of options for combo box 
+	  		ObservableList<String> options = FXCollections.observableArrayList(mealTitle);
+	  		//adds all options to combo box and sets color of background to transparent
+	  		mealCB.getItems().addAll(options);
+	  		mealCB.setPrefWidth(10);
+	  		mealCB.setStyle("-fx-background-color: transparent;");
+	  		mealCB.setOnAction(e -> {
+	  			//selects image from the combo box from combobox index   
+	  			int selectedIndex = mealCB.getSelectionModel().getSelectedIndex();
+	  			
+	  			
+	  		});
 	  
 	}
 	
@@ -76,6 +91,19 @@ public class NutritionGUI extends Pane{
 	
 	public static void addEntree(Recipe entree) {
 		entrees.add(entree);
+	}
+	public static void addSide(Recipe side) {
+		entrees.add(side);
+	}
+	public static void addDessert(Recipe dessert) {
+		entrees.add(dessert);
+	}
+	public String[] title(Recipe recipe) {
+		String[]title = new String[entrees.size()];
+		for(int i = 0; i<entrees.size(); i++) {
+			title[i] = "Meal" + i + " " + entrees.get(i).getTitle();
+		}
+		return null; 
 	}
 
 }

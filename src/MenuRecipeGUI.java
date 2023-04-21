@@ -142,12 +142,9 @@ public class MenuRecipeGUI extends Pane {
 		List<Recipe> entrees = new ArrayList<Recipe>();
 		List<Recipe> sides = new ArrayList<Recipe>();
 		List<Recipe> desserts = new ArrayList<Recipe>();
-		for(Recipe recipe : main.entrees)
-			entrees.add(recipe);
-		for(Recipe recipe : main.sides)
-			sides.add(recipe);
-		for(Recipe recipe : main.desserts)
-			desserts.add(recipe);
+		entrees.addAll(main.entrees);
+		sides.addAll(main.sides);
+		desserts.addAll(main.desserts);
 		
 		if(entreesBTN != null)
 			entreesBTN.clear();

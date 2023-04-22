@@ -24,7 +24,7 @@ public class AllRecipesGUI extends Pane{
 	private Label allRecipesLBL = new Label("All Recipes");
 	private GridPane pane = new GridPane();
 	private BorderPane border = new BorderPane();
-	private Recipe tempRecipe;
+	//private Recipe tempRecipe;
 	
 	public AllRecipesGUI() {
 		Stage AllRecipesStage = new Stage();
@@ -86,7 +86,7 @@ public class AllRecipesGUI extends Pane{
 		//Adding entrees
 		pane.addColumn(0, entreesLBL);
 		for(int i = 0; i<main.entrees.size(); i++) {
-			tempRecipe = main.entrees.get(i);
+			Recipe tempRecipe = main.entrees.get(i);
 			entreesBTN.add(new Button(tempRecipe.getTitle()));
 			pane.addColumn(0, entreesBTN.get(i));
 			entreesBTN.get(i).setMaxHeight(Double.MAX_VALUE);
@@ -98,7 +98,7 @@ public class AllRecipesGUI extends Pane{
 		//Adding sides
 		pane.addColumn(1, sidesLBL);
 		for(int i = 0; i<main.sides.size(); i++) {
-			tempRecipe = main.sides.get(i);
+			Recipe tempRecipe = main.sides.get(i);
 			sidesBTN.add(new Button(tempRecipe.getTitle()));
 			pane.addColumn(1, sidesBTN.get(i));
 			// set to expand with cell
@@ -111,7 +111,7 @@ public class AllRecipesGUI extends Pane{
 		//Adding desserts
 		pane.addColumn(2, dessertsLBL);
 		for(int i = 0; i<main.desserts.size(); i++) {
-			tempRecipe = main.desserts.get(i);
+			Recipe tempRecipe = main.desserts.get(i);
 			dessertsBTN.add(new Button(tempRecipe.getTitle()));
 			pane.addColumn(2, dessertsBTN.get(i));
 			//set to expand with cell
@@ -119,7 +119,6 @@ public class AllRecipesGUI extends Pane{
 			dessertsBTN.get(i).setMaxWidth(Double.MAX_VALUE);
 			dessertsBTN.get(i).setOnAction(e ->{
 				SingleRecipeGUI gui = new SingleRecipeGUI(tempRecipe);
-				//gui.setRecipe(tempRecipe);
 			});
 		}
 		

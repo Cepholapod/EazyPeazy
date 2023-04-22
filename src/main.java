@@ -55,13 +55,15 @@ public class main extends Application {
 		borderPane.setBottom(btNewUser);
 		borderPane.setCenter(tilePane);
 		borderPane.setAlignment(btNewUser, Pos.BOTTOM_RIGHT);
+		borderPane.setStyle("-fx-background-color:  #aac4e8;");
 
 		tilePane.setHgap(10);
 		tilePane.setVgap(10);
 		tilePane.setTileAlignment(Pos.CENTER);
 		tilePane.setBorder(new Border(
 				new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-
+		tilePane.setStyle("-fx-background-color:  white;");
+		
 		ArrayList<User> users = User.DefaultUsers();
 
 		// I made it so that we iterate through the list of users (given users.txt),
@@ -174,6 +176,7 @@ public class main extends Application {
 		Scene addProfileScene = new Scene(addProfilePanel, 300, 150);
 		// Set the Scene of the Stage
 		addProfileWindow.setScene(addProfileScene);
+
 		// Show the Stage
 		addProfileWindow.show();
 

@@ -138,7 +138,7 @@ public class UserGUI extends VBox {
 			userWindow.close();
 		});
 		
-		setStyle("-fx-background-color: whitesmoke");
+		setStyle("-fx-background-color:  #aac4e8;");
 		
 	}
 	

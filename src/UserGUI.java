@@ -118,8 +118,6 @@ public class UserGUI extends VBox {
 		getChildren().add(exitButton);
 		getChildren().add(setRestrictions);
 		
-
-		
 		//list of options for combo box 
 		ObservableList<String> options = FXCollections.observableArrayList(imageTitles);
 		//adds all options to combo box and sets color of background to transparent

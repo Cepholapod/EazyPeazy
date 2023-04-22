@@ -56,6 +56,40 @@ public class UserGUI extends VBox {
 		Button recipeMakerButton = new Button("New Recipe"), displayButton = new Button("Display All Recipes"), 
 				menu = new Button("Menu");
 
+		VBox restrictionBar = new VBox();
+		restrictionBar.setSpacing(5);
+		restrictionBar.setPadding(new Insets(5));
+		for (String tag : tags) {
+			CheckBox checkBox = new CheckBox(tag);
+			restrictionBar.getChildren().add(checkBox);
+		}
+
+		Button setRestrictions = new Button("Set Restrictions...");
+		
+		setRestrictions.setOnAction(e -> {
+			Popup popup = new Popup();
+			popup.getContent().add(restrictionBar);
+            popup.setAutoHide(true);
+            
+            Window window = setRestrictions.getScene().getWindow();
+            // Get the screen coordinates of the button
+            Bounds bounds = setRestrictions.localToScreen(setRestrictions.getBoundsInLocal());
+            // Set the X and Y coordinates of the popup to position it directly under the button
+            popup.setX(bounds.getMinX());
+            popup.setY(bounds.getMaxY());
+            // Show the popup
+            popup.show(window);
+		});
+	 	 /*  VBox root = new VBox();
+	        root.setSpacing(10);
+	        root.setPadding(new Insets(10));
+	        root.getChildren().addAll(setRestrictions);
+	        Scene scene = new Scene(root, 300, 200);
+	        userWindow.setScene(scene);*/
+
+		//titleBar.getChildren().add(setRestrictions);
+		//adds combo box for user icon. adds buttons.	
+	 
 		
 	    setAlignment(Pos.TOP_CENTER); // set alignment to center
 	    setSpacing(10); // set spacing between buttons
@@ -82,8 +116,8 @@ public class UserGUI extends VBox {
 		getChildren().add(recipeMakerButton);
 		getChildren().add(displayButton);
 		getChildren().add(exitButton);
+		getChildren().add(setRestrictions);
 		
-	//	getChildren().add(setRestrictions);
 
 		
 		//list of options for combo box 

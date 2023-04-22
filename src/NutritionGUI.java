@@ -52,12 +52,15 @@ public class NutritionGUI extends Pane{
 	  	//trying to fix it
 	  	mealCB.setPromptText("Select a meal");
 	  	mealCB.setPrefWidth(115);
+	  	mealCB.setDisable(false);
 
 	  	//mealCB.setStyle("-fx-background-color: transparent;");
-	  	mealCB.setOnMouseClicked(e -> { 
+	  	mealCB.setOnAction(e -> { 
 	  		int selectedIndex = mealCB.getSelectionModel().getSelectedIndex();
 	  		user.setMeal(entrees.get(selectedIndex), sides.get(selectedIndex), desserts.get(selectedIndex));
 	  	});
+	  	mealCB.setOnMouseClicked(e -> System.out.println("ComboBox clicked"));
+
 	  	
 
 		//creates list for the pie chart. 

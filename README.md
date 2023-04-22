@@ -20,4 +20,4 @@ License
 This program is licensed under the MIT License. See the LICENSE file for more information.
 
 Credits
-This program was developed by Seth Glover, Zachary Haring, Camille Kreager, Jessica Service.
+This program was developed by Seth Glover, Zachary Haring, Camille Kreager, Jessica Servis.

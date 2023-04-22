@@ -16,8 +16,5 @@ Follow the on-screen instructions to create and view reciepes and meals.
 Contributing
 If you want to contribute to this project, feel free to fork the repository and submit a pull request.
 
-License
-This program is licensed under the MIT License. See the LICENSE file for more information.
-
 Credits
 This program was developed by Seth Glover, Zachary Haring, Camille Kreager, Jessica Servis.

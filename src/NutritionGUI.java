@@ -39,19 +39,22 @@ public class NutritionGUI extends Pane{
 	 * macros the user intakes from a meal.
 	 */
 	public void nutrition() {
-		final Stage nutritionStage = new Stage();
-		this.entrees.addAll(main.entrees);
-		this.sides.addAll(main.sides);
-		this.desserts.addAll(main.desserts);
-		nutritionStage.setTitle("Nutrition");
+		//final Stage nutritionStage = new Stage();
+		entrees.addAll(main.entrees);
+		sides.addAll(main.sides);
+		desserts.addAll(main.desserts);
+		//nutritionStage.setTitle("Nutrition");
 		//list of options for combo box 
 		mealTitle = title();
 	  	ObservableList<String> options = FXCollections.observableArrayList(mealTitle);
 	  	//adds all options to combo box and sets color of background to transparent
 	  	mealCB.getItems().addAll(options);
-	  	mealCB.setPrefWidth(100);
+	  	//trying to fix it
+	  	mealCB.setPromptText("Select a meal");
+	  	mealCB.setPrefWidth(115);
+
 	  	//mealCB.setStyle("-fx-background-color: transparent;");
-	  	mealCB.setOnAction(e -> { 
+	  	mealCB.setOnMouseClicked(e -> { 
 	  		int selectedIndex = mealCB.getSelectionModel().getSelectedIndex();
 	  		user.setMeal(entrees.get(selectedIndex), sides.get(selectedIndex), desserts.get(selectedIndex));
 	  	});

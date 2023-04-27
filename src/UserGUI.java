@@ -33,7 +33,7 @@ public class UserGUI extends VBox {
 	private String title;
 	private ImageView[] userImages = { new ImageView("UserImage/UserBlue.PNG"),new ImageView("UserImage/UserGreen.PNG"),
 			new ImageView("UserImage/UserOrange.PNG"),new ImageView("UserImage/UserPink.PNG")};
-	private String[] tags = {"none","carnivore","paleo","Mediterranean","dash","gf","lowFat","lactoseFre"};
+	private String[] tags = {"none","carnivore","paleo","Mediterranean","Vegan","gf","lowFat","lactoseFree","Vegetarian"};
 	private ComboBox<String> comboBox = new ComboBox<>();
 	User user = new User();
 	

@@ -1,3 +1,5 @@
+import java.io.File;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Bounds;
@@ -31,7 +33,7 @@ public class UserGUI extends VBox {
 	private String title;
 	private ImageView[] userImages = { new ImageView("UserImage/UserBlue.PNG"),new ImageView("UserImage/UserGreen.PNG"),
 			new ImageView("UserImage/UserOrange.PNG"),new ImageView("UserImage/UserPink.PNG")};
-	private String[] tags = {"carnivore","paleo","Mediterranean","dash","gf","lowFat","lactoseFre"};
+	private String[] tags = {"none","carnivore","paleo","Mediterranean","dash","gf","lowFat","lactoseFre"};
 	private ComboBox<String> comboBox = new ComboBox<>();
 	User user = new User();
 	
@@ -59,37 +61,49 @@ public class UserGUI extends VBox {
 		VBox restrictionBar = new VBox();
 		restrictionBar.setSpacing(5);
 		restrictionBar.setPadding(new Insets(5));
-		for (String tag : tags) {
-			CheckBox checkBox = new CheckBox(tag);
-			restrictionBar.getChildren().add(checkBox);
-		}
+		ComboBox<String> tagComboBox = new ComboBox<>(FXCollections.observableArrayList(tags));
+		restrictionBar.getChildren().add(tagComboBox);
 
 		Button setRestrictions = new Button("Set Restrictions...");
-		
 		setRestrictions.setOnAction(e -> {
-			Popup popup = new Popup();
-			popup.getContent().add(restrictionBar);
-            popup.setAutoHide(true);
-            
-            Window window = setRestrictions.getScene().getWindow();
-            // Get the screen coordinates of the button
-            Bounds bounds = setRestrictions.localToScreen(setRestrictions.getBoundsInLocal());
-            // Set the X and Y coordinates of the popup to position it directly under the button
-            popup.setX(bounds.getMinX());
-            popup.setY(bounds.getMaxY());
-            // Show the popup
-            popup.show(window);
-		});
-	 	 /*  VBox root = new VBox();
-	        root.setSpacing(10);
-	        root.setPadding(new Insets(10));
-	        root.getChildren().addAll(setRestrictions);
-	        Scene scene = new Scene(root, 300, 200);
-	        userWindow.setScene(scene);*/
+		    Popup popup = new Popup();
+		    popup.getContent().add(restrictionBar);
+		    popup.setAutoHide(true);
 
-		//titleBar.getChildren().add(setRestrictions);
-		//adds combo box for user icon. adds buttons.	
-	 
+		    Window window = setRestrictions.getScene().getWindow();
+		    // Get the screen coordinates of the button
+		    Bounds bounds = setRestrictions.localToScreen(setRestrictions.getBoundsInLocal());
+		    // Set the X and Y coordinates of the popup to position it directly under the button
+		    popup.setX(bounds.getMinX());
+		    popup.setY(bounds.getMaxY());
+		    // Show the popup
+		    popup.show(window);
+		});
+		
+		// Create a new button for submitting the selected value
+		Button submitButton = new Button("Submit");
+
+		// Add an event handler to the submit button
+		submitButton.setOnAction(event -> {
+		    // Get the selected value from the ComboBox
+		    String selectedValue = tagComboBox.getSelectionModel().getSelectedItem();
+		    Recipe recipe = new Recipe();
+		    // Do something with the selected value
+		    System.out.println("Selected value: " + selectedValue);
+		    if (selectedValue == "none") {
+			main.entrees = RecipeSelector.entreeSelector(new File("Entree.txt"));
+			main.sides = RecipeSelector.sideSelector(new File("Side.txt"));
+			main.desserts = RecipeSelector.dessertSelector(new File("Dessert.txt"));
+		    } else {
+		    main.entrees = DietDecorator.entreeSelector(new File("Entree.txt"), selectedValue);
+			main.sides = DietDecorator.sideSelector(new File("Side.txt"), selectedValue);
+			main.desserts = DietDecorator.dessertSelector(new File("Dessert.txt"), selectedValue);
+		    }
+		});
+
+		// Add the submit button to the VBox
+		restrictionBar.getChildren().add(submitButton);
+	
 		
 	    setAlignment(Pos.TOP_CENTER); // set alignment to center
 	    setSpacing(10); // set spacing between buttons

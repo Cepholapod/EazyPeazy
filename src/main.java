@@ -203,16 +203,11 @@ public class main extends Application {
 		return this.userImage;
 	}
 	public static void main(String[] args) {
-		if (tag == null) {
+		
 			entrees = RecipeSelector.entreeSelector(new File("Entree.txt"));
 			sides = RecipeSelector.sideSelector(new File("Side.txt"));
 			desserts = RecipeSelector.dessertSelector(new File("Dessert.txt"));
-		} else {
-			entrees = DietDecorator.entreeSelector(new File("Entree.txt"), tag);
-			sides = DietDecorator.sideSelector(new File("Side.txt"), tag);
-			desserts = DietDecorator.dessertSelector(new File("Dessert.txt"), tag);
-		}
-		
+	
 		Application.launch(args);
 
 		

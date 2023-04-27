@@ -27,7 +27,7 @@ public class main extends Application {
 	public static List<Recipe> sides = new ArrayList<Recipe>();
 	public static List<Recipe> desserts = new ArrayList<Recipe>();
 	public static String tag;
-	private Image userImage;
+	private static Image userImage;
 	//final public static Image newUser = new Image("UserImage/NewUser.PNG");
 	final public static TilePane tilePane = new TilePane();
 	
@@ -162,7 +162,21 @@ public class main extends Application {
 					final Button newUserButton = new Button(username);
 					newUserButton.setContentDisplay(ContentDisplay.TOP);
 					newUserButton.setFont(Font.font("Georgia", FontWeight.BOLD, 18));
+					ImageView userView = new ImageView(userImage);
+					newUserButton.setGraphic(userView);
+					newUserButton.setStyle("-fx-background-color: transparent;");
 					tilePane.getChildren().add(newUserButton);
+					newUserButton.setOnAction(new EventHandler<ActionEvent>() {
+						public void handle(ActionEvent e) {
+							String username = newUserButton.getText();
+							User user = User.getUserByUsername(username);
+							Scene scene2  = new Scene(new UserGUI(user), 820,600);
+							addProfileWindow.setScene(scene2);
+							addProfileWindow.setTitle(username);
+							addProfileWindow.show();
+
+						}
+					});
 
 					// Close the window after saving the user
 					addProfileWindow.close();

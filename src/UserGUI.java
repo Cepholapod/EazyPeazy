@@ -95,6 +95,9 @@ public class UserGUI extends VBox {
 			main.sides = RecipeSelector.sideSelector(new File("Side.txt"));
 			main.desserts = RecipeSelector.dessertSelector(new File("Dessert.txt"));
 		    } else {
+		    main.entrees.clear();	
+		    main.sides.clear();
+		    main.desserts.clear();
 		    main.entrees = DietDecorator.entreeSelector(new File("Entree.txt"), selectedValue);
 			main.sides = DietDecorator.sideSelector(new File("Side.txt"), selectedValue);
 			main.desserts = DietDecorator.dessertSelector(new File("Dessert.txt"), selectedValue);

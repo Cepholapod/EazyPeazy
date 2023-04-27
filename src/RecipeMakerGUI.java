@@ -494,10 +494,11 @@ public class RecipeMakerGUI extends Pane {
 			main.desserts.add(recipe);
 		}
 		
-		System.out.println(main.entrees);
-		Scene scene1 = new Scene(new UserGUI(user), 500,500);
-		stage1.setScene(scene1);
-		stage1.setTitle("UserName");
+		//System.out.println(main.entrees);
+		//Scene scene1 = new Scene(new UserGUI(user), 500,500);
+		//stage1.setScene(scene1);
+		//stage1.setTitle("UserName");
+		stage1.close();
 		for(int i = 0; i < 15; i++) {
 			labArr.get(i).setText("");
 			textArr.get(i).setText("");
